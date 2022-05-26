@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
       - name: 🚀 publish
-        run: npm publish /dist
-        working-directory: my-package
+        run: npm publish --access public
+        working-directory: dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
