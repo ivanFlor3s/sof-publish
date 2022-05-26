@@ -8,7 +8,7 @@ on:
           - sof-i18n
 
 jobs:
-    deploy:
+    publish:
         name: 🚀 publish 
         runs-on: ${{ matrix.os }}
 
