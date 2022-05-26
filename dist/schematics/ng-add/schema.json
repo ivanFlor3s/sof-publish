@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "SchematicsAngularNgNew",
+    "type": "object",
+    "properties": {
+        "keycloakServerIp": {
+            "type": "string",
+            "minLength": 1,
+            "default": "10.3.0.36",
+            "x-prompt": "Keycloak server ip?"
+        },
+        "keycloakServerPort": {
+            "type": "number",
+            "min": 1,
+            "max": 65535,
+            "default": "38080",
+            "x-prompt": "Keycloak server port?"
+        },
+        "keycloakRealm": {
+            "type": "string",
+            "minLength": 1,
+            "default": "Odi",
+            "x-prompt": "Keycloak realm?"
+        },
+        "keycloakClientId": {
+            "type": "string",
+            "minLength": 1,
+            "x-prompt": "Keycloak client id?"
+        }
+    },
+    "required": ["keycloakServerIp", "keycloakServerPort", "keycloakRealm", "keycloakClientId"]
+}

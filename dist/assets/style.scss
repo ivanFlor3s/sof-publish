@@ -1,0 +1,121 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@import '~@angular/material/theming';
+
+@import './styles/ag-grid-overrides.scss';
+
+@import './styles/alert.global.scss';
+
+
+@include mat-core();
+$basa-primary-palette: (50: #e0f4fb,
+    100: #b1e3f4,
+    200: #80d0ed,
+    300: #50bee5,
+    400: #2cb0e2,
+    500: #00a1de,
+    600: #0095d0,
+    700: #0083bd,
+    800: #0072aa,
+    900: #005388,
+    A100 : #f1f8ff,
+    A200 : #bee0ff,
+    A400 : #8bc7ff,
+    A700 : #71bbff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    ));
+$basa-accent-palette: (
+    50 : #dcf3f3,
+    100: #a6e1df,
+    200: #63ceca,
+    300: #00b9b4,
+    400: #00a9a1,
+    500: #00998f,
+    600: #008c81,
+    700: #007c70,
+    800: #006c60,
+    900: #004f43,
+    A100 : #faffff,
+    A200 : #c7fffc,
+    A400 : #94fffa,
+    A700 : #7afff9,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    ));
+//Defino material palettes
+$primary: mat.define-palette($basa-primary-palette, 500);
+$accent: mat.define-palette($basa-accent-palette, 200, A100, A400);
+//Defino el tema
+$light-basa-theme: mat.define-light-theme((color: (
+    primary: $primary,
+    accent: $accent,
+)));
+@include mat.all-component-themes($light-basa-theme);
+
+// Tipografia
+// https://material.angular.io/guide/typography#typography-levels
+
+$my-custom-typography: mat.define-typography-config(
+  $headline:  mat.define-typography-level(1.5625em, 1.25em, 400),
+  $body-1:  mat.define-typography-level(16px, 1.25em, 400),
+  $input:  mat.define-typography-level(1em, 1.25em, 400),
+);
+
+@include mat.core($my-custom-typography);
+
+// --------------------------------------
+
+mat-label{
+    &.active-label{
+        color: mat-color($primary) !important
+    }
+}
+
+
+
+//  AG GRID
+@include ag-grid (
+    $primary-color: mat-color($primary),
+    $odd-bg-color: #f5F5f5,
+);
+
+
+//Estilos globales TODO meter en partials
+button{
+    .button-text{
+        letter-spacing: 1.25px;
+    }
+}
+
+.mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
+    background: lighten($color: mat-color($primary), $amount: 50);
+    color: mat-color($primary);
+}

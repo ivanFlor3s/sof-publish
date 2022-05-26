@@ -1,0 +1,36 @@
+{
+  "name": "sof-shared",
+  "version": "0.0.5",
+  "peerDependencies": {
+    "@angular/common": "^13.1.0",
+    "@angular/core": "^13.1.0",
+    "keycloak-angular": "^9.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
+  },
+  "module": "fesm2015/sof-shared.mjs",
+  "es2020": "fesm2020/sof-shared.mjs",
+  "esm2020": "esm2020/sof-shared.mjs",
+  "fesm2020": "fesm2020/sof-shared.mjs",
+  "fesm2015": "fesm2015/sof-shared.mjs",
+  "typings": "sof-shared.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./sof-shared.d.ts",
+      "esm2020": "./esm2020/sof-shared.mjs",
+      "es2020": "./fesm2020/sof-shared.mjs",
+      "es2015": "./fesm2015/sof-shared.mjs",
+      "node": "./fesm2015/sof-shared.mjs",
+      "default": "./fesm2020/sof-shared.mjs"
+    }
+  },
+  "sideEffects": false
+}
