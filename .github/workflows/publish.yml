@@ -1,31 +1,32 @@
 name: "🚀 Publish"
 
 on:
-    push:
-        branches:
-          - sof-shared
-          - sof-controls
-          - sof-i18n
+  push:
+    branches:
+      - sof-shared
+      - sof-controls
+      - sof-i18n
 
 jobs:
-    publish:
-        name: 🚀 publish 
-        runs-on: ${{ matrix.os }}
+  publish:
+    name: 🚀 publish
 
-        strategy:
-            matrix:
-                node-version: [15.x,16.x]
-                od: [windows-latest, ubuntu-latest]
-        steps:
-            - name: 📚 checkout
-              uses: actions/checkout@v3
-            - name: 🟢 Use node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  registry-url: https://registry.npmjs.org
-            - name: 🚀 publish
-              run: npm publish /dist
-              working-directory: my-package
-              env:
-                  NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [15.x, 16.x]
+        od: [windows-latest, ubuntu-latest]
+    steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v3
+      - name: 🟢 Use node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org
+      - name: 🚀 publish
+        run: npm publish /dist
+        working-directory: my-package
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
