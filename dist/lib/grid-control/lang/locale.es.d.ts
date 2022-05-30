@@ -1,0 +1,28 @@
+export declare const AG_GRID_LOCALE_ES: {
+    inRangeStart: string;
+    inRangeEnd: string;
+    sum: string;
+    min: string;
+    max: string;
+    none: string;
+    count: string;
+    avg: string;
+    filteredRows: string;
+    selectedRows: string;
+    totalRows: string;
+    totalAndFilteredRows: string;
+    more: string;
+    to: string;
+    of: string;
+    page: string;
+    nextPage: string;
+    lastPage: string;
+    firstPage: string;
+    previousPage: string;
+    rowDragRows: string;
+    loadingOoo: string;
+    noRowsToShow: string;
+    enabled: string;
+    thousandSeparator: string;
+    decimalSeparator: string;
+};

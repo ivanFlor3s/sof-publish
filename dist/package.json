@@ -1,35 +1,43 @@
 {
-  "name": "sof-shared",
-  "version": "0.0.9",
+  "name": "sof-ng-controls",
+  "version": "0.4.19",
   "peerDependencies": {
-    "@angular/common": "^13.1.0",
-    "@angular/core": "^13.1.0",
-    "keycloak-angular": "^9.1.0"
+    "@angular/material-luxon-adapter": "^13.2.5",
+    "@angular/material": ">=11.0.0",
+    "@angular/common": ">=11.0.0",
+    "@angular/core": ">=11.0.0",
+    "luxon": "^2.3.1",
+    "ngx-material-file-input": "^3.0.0",
+    "ngx-material-timepicker": "^5.5.3",
+    "rxjs": "^6.5.3 || ^7.4.0",
+    "ag-grid-angular": "^27.2.1",
+    "ag-grid-community": "^27.2.1",
+    "sweetalert2": "^11.4.9",
+    "@sweetalert2/ngx-sweetalert2": "^11.0.0",
+    "@sweetalert2/theme-bootstrap-4": "^5.0.10",
+    "ngx-mask": "^13.1.13"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "schematics": "./schematics/collection.json",
-  "ng-add": {
-    "save": "dependencies"
-  },
-  "module": "fesm2015/sof-shared.mjs",
-  "es2020": "fesm2020/sof-shared.mjs",
-  "esm2020": "esm2020/sof-shared.mjs",
-  "fesm2020": "fesm2020/sof-shared.mjs",
-  "fesm2015": "fesm2015/sof-shared.mjs",
-  "typings": "sof-shared.d.ts",
+  "license": "UNLICENSED",
+  "module": "fesm2015/sof-ng-controls.mjs",
+  "es2020": "fesm2020/sof-ng-controls.mjs",
+  "esm2020": "esm2020/sof-ng-controls.mjs",
+  "fesm2020": "fesm2020/sof-ng-controls.mjs",
+  "fesm2015": "fesm2015/sof-ng-controls.mjs",
+  "typings": "sof-ng-controls.d.ts",
   "exports": {
     "./package.json": {
       "default": "./package.json"
     },
     ".": {
-      "types": "./sof-shared.d.ts",
-      "esm2020": "./esm2020/sof-shared.mjs",
-      "es2020": "./fesm2020/sof-shared.mjs",
-      "es2015": "./fesm2015/sof-shared.mjs",
-      "node": "./fesm2015/sof-shared.mjs",
-      "default": "./fesm2020/sof-shared.mjs"
+      "types": "./sof-ng-controls.d.ts",
+      "esm2020": "./esm2020/sof-ng-controls.mjs",
+      "es2020": "./fesm2020/sof-ng-controls.mjs",
+      "es2015": "./fesm2015/sof-ng-controls.mjs",
+      "node": "./fesm2015/sof-ng-controls.mjs",
+      "default": "./fesm2020/sof-ng-controls.mjs"
     }
   },
   "sideEffects": false

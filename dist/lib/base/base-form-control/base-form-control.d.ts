@@ -1,0 +1,31 @@
+import { DoCheck, EventEmitter } from '@angular/core';
+import { ControlValueAccessor, NgControl, ValidationErrors } from '@angular/forms';
+import * as i0 from "@angular/core";
+export declare class BaseFormFieldComponent implements ControlValueAccessor, DoCheck {
+    controlDir: NgControl;
+    info: string;
+    description: string;
+    label: string;
+    placeholder: string;
+    change: EventEmitter<any>;
+    value: any;
+    disabled: boolean;
+    isRequired: boolean;
+    invalid: boolean;
+    get EsInvalido(): boolean;
+    onChange: (value: any) => void;
+    onTouch: () => void;
+    constructor(controlDir: NgControl);
+    ngDoCheck(): void;
+    get hasErrors(): boolean;
+    get errors(): ValidationErrors | null;
+    writeValue(value: any): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: () => void): void;
+    setDisabledState(disabled: boolean): void;
+    onBlur(): void;
+    protected changeValue(value: any): void;
+    protected setInputValue(value: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<BaseFormFieldComponent, [{ optional: true; self: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<BaseFormFieldComponent, "ng-component", never, { "info": "info"; "description": "description"; "label": "label"; "placeholder": "placeholder"; }, { "change": "change"; }, never, never>;
+}
