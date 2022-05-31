@@ -19,12 +19,13 @@
         "keycloakRealm": {
             "type": "string",
             "minLength": 1,
-            "default": "Odi",
+            "default": "odi",
             "x-prompt": "Keycloak realm?"
         },
         "keycloakClientId": {
             "type": "string",
             "minLength": 1,
+            "default": "basa-prueba",
             "x-prompt": "Keycloak client id?"
         }
     },

@@ -46,7 +46,7 @@ function addKeycloakJsInIndexHTML(keycloakServerIp, keycloakServerPort) {
         return tree;
     };
 }
-function addKeycloakConfigInAppModules(keycloakServerIp, keycloakServerPort, realm, clientId) {
+function addKeycloakConfigInAppModules() {
     return (tree) => {
         var _a;
         const appModulePath = '/src/app/app.module.ts';
@@ -60,31 +60,37 @@ function addKeycloakConfigInAppModules(keycloakServerIp, keycloakServerPort, rea
             console.log(`initializeKeycloak already exists in ${appModulePath}. Skipping`);
             return tree;
         }
+        // imports y configuracion
         const ngModuleDecoratorIndex = content.indexOf('@NgModule');
         if (ngModuleDecoratorIndex == -1)
             throw new schematics_2.SchematicsException(`@NgModule not found in ${appModulePath}`);
-        const keycloakConfig = `//ToDo poner el import de keycloak
+        const keycloakConfig = `import { KeycloakConfigurations } from 'sof-shared/lib/configurations/keycloak-configurations';
+import { environment } from 'src/environments/environment';
+import { SofSharedModule } from 'sof-shared';
 
-function initializeKeycloak(keycloak: KeycloakService) {
-  return () =>
-    keycloak.init({
-      config: {
-        url: 'http://${keycloakServerIp}:${keycloakServerPort}/auth',
-        realm: '${realm}',
-        clientId: '${clientId}'
-      },
-      initOptions: {
-        onLoad: 'check-sso',
-        silentCheckSsoRedirectUri:
-          window.location.origin + '/assets/silent-check-sso.html'
-      }
-    });
-}
-    
+const keycloakConfig = {
+  clientId: environment.keycloakClientId,
+  ip: environment.keycloakIp,
+  port: environment.keycloakPort,
+  realm: environment.keycloakRealm
+} as KeycloakConfigurations;
+
 `;
         // now we update the template using the tree recorder
         const recorder = tree.beginUpdate(appModulePath);
         recorder.insertLeft(ngModuleDecoratorIndex, keycloakConfig);
+        // -----------------------------------------------------------------
+        // module imports
+        const modulesImportsIndex = content.indexOf('imports: [');
+        if (modulesImportsIndex == -1)
+            throw new schematics_2.SchematicsException(`Cant find 'imports: [' in ${appModulePath}. Add modules import manually 'SofSharedModule.forRoot(keycloakConfig)'`);
+        else {
+            const sofSharedModuleImport = `
+    SofSharedModule.forRoot(keycloakConfig),
+    `;
+            recorder.insertRight(modulesImportsIndex + 10, sofSharedModuleImport);
+        }
+        // -----------------------------------------------------------------
         tree.commitUpdate(recorder);
         return tree;
     };
@@ -121,10 +127,10 @@ function addGlobalStyleInAngularJson(globalStylePath) {
         const json = JSON.parse(contentJson);
         //EN BUILD
         var optionsBuildJson = json['projects'][project]['architect']['build']['options'];
-        pushWhenPossible(optionsBuildJson['styles'], globalStylePath, 'Global style path not added in build  because the referene already exists', context);
+        pushWhenPossible(optionsBuildJson['styles'], globalStylePath, 'Global style path not added in build because the referene already exists', context);
         //EN TEST
         var optionsTestJson = json['projects'][project]['architect']['test']['options'];
-        pushWhenPossible(optionsTestJson['styles'], globalStylePath, 'Global style path not added in test  because the referene already exists', context);
+        pushWhenPossible(optionsTestJson['styles'], globalStylePath, 'Global style path not added in test because the referene already exists', context);
         tree.overwrite(angularJsonPath, JSON.stringify(json, null, 2));
         return;
     });
@@ -192,7 +198,7 @@ function ngAdd(options) {
     return (0, schematics_1.chain)([
         installPackage,
         addKeycloakJsInIndexHTML(options.keycloakServerIp, options.keycloakServerPort),
-        addKeycloakConfigInAppModules(options.keycloakServerIp, options.keycloakServerPort, options.keycloakRealm, options.keycloakClientId),
+        addKeycloakConfigInAppModules(),
         addSilentCheckSsoHTML(),
         setAllowSyntheticDefaultImportsTrue(),
         addKeycloakConfigEnvironmentExample(options.keycloakServerIp, options.keycloakServerPort, options.keycloakRealm, options.keycloakClientId),
