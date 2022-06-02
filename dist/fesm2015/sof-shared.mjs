@@ -61,7 +61,8 @@ function initializeKeycloak(keycloak, configurations) {
             initOptions: {
                 onLoad: 'check-sso',
                 silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
-            }
+            },
+            bearerExcludedUrls: ['/assets'],
         });
     };
 }
