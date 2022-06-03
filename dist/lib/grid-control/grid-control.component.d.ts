@@ -1,13 +1,12 @@
 import { OnInit, ChangeDetectorRef, SimpleChanges, EventEmitter } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, ColGroupDef } from 'ag-grid-community';
+import { ColDef, ColGroupDef, GridApi } from 'ag-grid-community';
 import { OnChanges } from '@angular/core';
-import { GridApiControl } from './interfaces/grid-api-control';
 import * as i0 from "@angular/core";
 export declare class GridControlComponent implements OnInit, OnChanges {
     private _cdRef;
     private gridApi;
-    gridReady: EventEmitter<GridApiControl>;
+    gridReady: EventEmitter<GridApi>;
     gridRowOptions: boolean;
     gridRowData: any[] | null;
     gridColDefsRaw: (ColDef | ColGroupDef | string)[];
