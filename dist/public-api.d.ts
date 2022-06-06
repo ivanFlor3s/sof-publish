@@ -8,6 +8,7 @@ export * from './lib/base/base-form-control/base-form-control';
 export * from './lib/grid-control/components';
 export * from './lib/grid-control/grid-control.component';
 export * from './lib/grid-control/grid-control.module';
+export * from './lib/grid-control/services/grid-handler.service';
 export * from './lib/grid-control/interfaces';
 export * from './lib/grid-control/lang';
 export * from './lib/material-controls/material-controls.module';

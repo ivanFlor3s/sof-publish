@@ -1,6 +1,6 @@
 import { OnInit, ChangeDetectorRef, SimpleChanges, EventEmitter } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, ColGroupDef, GridApi } from 'ag-grid-community';
+import { ColDef, ColGroupDef, GetRowIdFunc, GridApi } from 'ag-grid-community';
 import { OnChanges } from '@angular/core';
 import * as i0 from "@angular/core";
 export declare class GridControlComponent implements OnInit, OnChanges {
@@ -28,6 +28,7 @@ export declare class GridControlComponent implements OnInit, OnChanges {
     grid: AgGridAngular;
     gridChecboxesToSelection: boolean;
     rerender: boolean;
+    rowId: string;
     constructor(_cdRef: ChangeDetectorRef);
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
@@ -61,7 +62,8 @@ export declare class GridControlComponent implements OnInit, OnChanges {
     normaliseColDef(param: ColDef): ColDef;
     normaliseStringToColDef(param: string): ColDef;
     onGridReady(): void;
+    getRowId: GetRowIdFunc;
     sizeChanged(size: number): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GridControlComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GridControlComponent, "sof-grid-control", never, { "gridRowOptions": "gridRowOptions"; "gridRowData": "gridRowData"; "gridColDefsRaw": "gridColDefsRaw"; "gridPaginationPageSize": "gridPaginationPageSize"; "gridPagination": "gridPagination"; "gridRowSelection": "gridRowSelection"; "localeText": "localeText"; "gridAnimateRows": "gridAnimateRows"; "gridPageSizeEditable": "gridPageSizeEditable"; "gridPageSizeText": "gridPageSizeText"; "gridChecboxesToSelection": "gridChecboxesToSelection"; }, { "gridReady": "gridReady"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GridControlComponent, "sof-grid-control", never, { "gridRowOptions": "gridRowOptions"; "gridRowData": "gridRowData"; "gridColDefsRaw": "gridColDefsRaw"; "gridPaginationPageSize": "gridPaginationPageSize"; "gridPagination": "gridPagination"; "gridRowSelection": "gridRowSelection"; "localeText": "localeText"; "gridAnimateRows": "gridAnimateRows"; "gridPageSizeEditable": "gridPageSizeEditable"; "gridPageSizeText": "gridPageSizeText"; "gridChecboxesToSelection": "gridChecboxesToSelection"; "rowId": "rowId"; }, { "gridReady": "gridReady"; }, never, never>;
 }
