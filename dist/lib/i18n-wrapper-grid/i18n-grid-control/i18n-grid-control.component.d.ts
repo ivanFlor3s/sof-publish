@@ -8,6 +8,7 @@ export declare class I18nGridControlComponent implements OnInit {
     _srvTranslatePipe: TranslateService;
     private listenerToLangChange$;
     onGridApi: EventEmitter<GridApi>;
+    i18nRowId: any;
     gridControl: GridControlComponent;
     /**
      *
@@ -73,5 +74,5 @@ export declare class I18nGridControlComponent implements OnInit {
     transformI18nColumnRaws(): Promise<void>;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<I18nGridControlComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<I18nGridControlComponent, "app-i18n-grid-control", never, { "i18nGridRowData": "i18nGridRowData"; "i18nGridColDefsRaw": "i18nGridColDefsRaw"; "i18nGridPaginationPageSize": "i18nGridPaginationPageSize"; "i18nGridPagination": "i18nGridPagination"; "i18nGridRowSelection": "i18nGridRowSelection"; "i18nGridAnimateRows": "i18nGridAnimateRows"; "i18nGridPageSizeEditable": "i18nGridPageSizeEditable"; "i18nGridPageSizeText": "i18nGridPageSizeText"; "i18nGridCheckboxesToSelection": "i18nGridCheckboxesToSelection"; }, { "onGridApi": "onGridApi"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<I18nGridControlComponent, "app-i18n-grid-control", never, { "i18nRowId": "i18nRowId"; "i18nGridRowData": "i18nGridRowData"; "i18nGridColDefsRaw": "i18nGridColDefsRaw"; "i18nGridPaginationPageSize": "i18nGridPaginationPageSize"; "i18nGridPagination": "i18nGridPagination"; "i18nGridRowSelection": "i18nGridRowSelection"; "i18nGridAnimateRows": "i18nGridAnimateRows"; "i18nGridPageSizeEditable": "i18nGridPageSizeEditable"; "i18nGridPageSizeText": "i18nGridPageSizeText"; "i18nGridCheckboxesToSelection": "i18nGridCheckboxesToSelection"; }, { "onGridApi": "onGridApi"; }, never, never>;
 }
