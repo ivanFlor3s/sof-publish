@@ -68,6 +68,11 @@ class I18nOptions extends I18nBase {
             this.showOptions();
         }
     }
+    ngOnChanges(changes) {
+        if (this.listTmp) {
+            this.showOptions();
+        }
+    }
     showOptions() {
         this.listFinal = [];
         if (typeof (this.listTmp) === 'string' &&
@@ -94,7 +99,7 @@ class I18nOptions extends I18nBase {
     }
 }
 I18nOptions.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nOptions, deps: null, target: i0.ɵɵFactoryTarget.Component });
-I18nOptions.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nOptions, selector: "ng-component", inputs: { listTmp: "listTmp", textPath: "textPath", valuePath: "valuePath", toTranslate: "toTranslate" }, usesInheritance: true, ngImport: i0, template: '', isInline: true });
+I18nOptions.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nOptions, selector: "ng-component", inputs: { listTmp: "listTmp", textPath: "textPath", valuePath: "valuePath", toTranslate: "toTranslate" }, usesInheritance: true, usesOnChanges: true, ngImport: i0, template: '', isInline: true });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nOptions, decorators: [{
             type: Component,
             args: [{
