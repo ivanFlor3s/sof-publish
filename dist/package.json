@@ -1,10 +1,10 @@
 {
   "name": "sof-i18n-controls",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
-    "sof-ng-controls": "^1.6.0",
+    "sof-ng-controls": "^1.6.1",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "moment": "^2.29.3",
