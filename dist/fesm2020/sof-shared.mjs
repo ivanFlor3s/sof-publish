@@ -58,7 +58,7 @@ function initializeKeycloak(keycloak, configurations) {
                 clientId: configurations.clientId
             },
             initOptions: {
-                onLoad: 'check-sso',
+                onLoad: 'login-required',
                 silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html',
             },
             bearerExcludedUrls: ['/assets'],
@@ -128,25 +128,19 @@ class AuthGuard extends KeycloakAuthGuard {
         this.keycloak = keycloak;
     }
     async isAccessAllowed(route, state) {
-        // Force the user to log in if currently unauthenticated.
-        if (!this.authenticated) {
-            await this.keycloak.login({
-                redirectUri: window.location.origin
-            });
-            return false;
-        }
-        else
-            return true;
-        // // Get the roles required from the route.
-        // const requiredRoles = route.data.roles;
-        // // Allow the user to to proceed if no additional roles are required to access the route.
-        // if (!(requiredRoles instanceof Array) || requiredRoles.length === 0) {
-        //   return true;
-        // }
-        // // Allow the user to proceed if all the required roles are present.
-        // return requiredRoles.every((role) => this.roles.includes(role));
-        // ToDo Capaz se podria implementar aca lo de permisos
-        //      O directamente en un guard por separado
+        const keycloakInstance = this.keycloak.getKeycloakInstance();
+        return new Promise(resolve => {
+            keycloakInstance.onReady = async (authenticated) => {
+                if (!authenticated) {
+                    await this.keycloak.login({
+                        redirectUri: window.location.origin + state.url
+                    });
+                    resolve(false);
+                    return;
+                }
+                resolve(true);
+            };
+        });
     }
 }
 AuthGuard.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.3", ngImport: i0, type: AuthGuard, deps: [{ token: i1.Router }, { token: i2.KeycloakService }], target: i0.ɵɵFactoryTarget.Injectable });
@@ -165,7 +159,8 @@ class KeycloakEventService {
         this.keyCloakEventSubject$.subscribe({
             next: (e) => {
                 if (e.type == KeycloakEventType.OnTokenExpired) {
-                    keycloakService.updateToken(20);
+                    // keycloakService.updateToken(20);
+                    keycloakService.updateToken();
                 }
             }
         });
