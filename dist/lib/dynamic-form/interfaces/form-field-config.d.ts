@@ -1,34 +1,10 @@
-import { FormConfigTypes } from "../enums/form-config-types";
+import { FieldControlType, FormConfigTypes } from "../enums/form-config-types";
 import { ActionForm } from "./action-form";
 import { OptionsFormConfig } from "./option-config";
 import { ValidationForm } from "./validation-form";
-/**
- * Representa toda la configuracion de un campo
- * @example
- * ```ts
- * {
-    key:'email',
-    validations:[
-        {type:ValidationTypes.Required, customMessage:'Necesitamos tu mail (custom)'},
-        {type:ValidationTypes.Email, customMessage:'Esto no es un mail, esto es ESPARTA!!!'},
-
-    ],
-    action: [],
-    defaultValue:'',
-    dissabled: false,
-    hidden: false,
-    id:1002,
-    templateOptions: {
-        label: 'Correo',
-        placeholder:'Ej: pepito_crack2000@pepaso.com'
-    },
-    type: FormConfigTypes.Text,
-  }
-      
- * ```
- */
-export interface FormFieldConfig {
-    type: FormConfigTypes;
+export declare type FormFieldConfig = (FieldConfig | Emptyfield);
+export interface FieldConfig {
+    type: FieldControlType;
     id: number;
     /**
      * Representa el nombre del control que va a tomar el campo
@@ -41,7 +17,7 @@ export interface FormFieldConfig {
           placeholder: 'Ingrese nombre',
           customClass:'formControl'
         }
-     */
+      */
     templateOptions: {
         label: string;
         placeholder?: string;
@@ -63,8 +39,8 @@ export interface FormFieldConfig {
                   placeholder:'Ingrese aqui cualquier otra dato relevante.',
                   multiple: true
               }
-         * ```
-         */
+          * ```
+          */
         multiple?: boolean;
     };
     /**
@@ -86,8 +62,10 @@ export interface FormFieldConfig {
      * Cantidad de columnas que va a ocupar el control
      */
     cols: number;
+    subtitle?: string;
 }
 export interface Emptyfield {
     type: FormConfigTypes.EmptyCol;
     cols: number;
+    subtitle?: string;
 }

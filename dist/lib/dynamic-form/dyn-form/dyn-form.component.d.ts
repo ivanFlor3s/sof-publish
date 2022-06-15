@@ -3,18 +3,18 @@ import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FormConfigTypes } from '../enums';
 import { FormularioService } from '../formulario.service';
-import { FormFieldConfig, FormConfig, Emptyfield } from '../interfaces';
+import { FormConfig, FormFieldConfig } from '../interfaces';
 import * as i0 from "@angular/core";
 export declare class DynFormComponent implements AfterViewInit, OnDestroy, OnChanges {
     private cdRef;
     private fs;
-    fieldsP: (FormFieldConfig | Emptyfield)[];
+    fieldsP: FormFieldConfig[];
     enum: typeof FormConfigTypes;
     valueChanges: Subscription;
     cols: number;
     gutterSize: string;
     rowHeight: string;
-    fields: (FormFieldConfig | Emptyfield)[];
+    fields: FormFieldConfig[];
     submitEvent: EventEmitter<any>;
     onChangeEvent: EventEmitter<any>;
     /**
@@ -36,6 +36,7 @@ export declare class DynFormComponent implements AfterViewInit, OnDestroy, OnCha
     ngAfterViewChecked(): void;
     ngOnDestroy(): void;
     OnSubmit(): void;
+    getRowHeight(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<DynFormComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<DynFormComponent, "app-dyn-form", never, { "cols": "cols"; "gutterSize": "gutterSize"; "rowHeight": "rowHeight"; "fields": "fields"; "FieldsValues": "FieldsValues"; "formConfig": "formConfig"; }, { "submitEvent": "submitEvent"; "onChangeEvent": "onChangeEvent"; }, never, never>;
 }

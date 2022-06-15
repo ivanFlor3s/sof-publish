@@ -1,4 +1,4 @@
-import { Emptyfield, FormFieldConfig } from './interfaces';
+import { FieldConfig, FormFieldConfig } from './interfaces';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -8,9 +8,9 @@ export declare class FormularioService {
     private http;
     private subs;
     constructor(fb: FormBuilder, http: HttpClient);
-    buildFormGroup(fields: (FormFieldConfig | Emptyfield)[]): FormGroup;
-    procesarAcciones(fields: FormFieldConfig[], field: FormFieldConfig, form: FormGroup): Subscription;
-    realizarRequestToUrl(form: FormGroup, field: FormFieldConfig): void;
+    buildFormGroup(fields: FormFieldConfig[]): FormGroup;
+    procesarAcciones(fields: FieldConfig[], field: FieldConfig, form: FormGroup): Subscription;
+    realizarRequestToUrl(form: FormGroup, field: FieldConfig): void;
     private getFieldTargetFromFields;
     private procesarFillOptions;
     private procesarHide;
