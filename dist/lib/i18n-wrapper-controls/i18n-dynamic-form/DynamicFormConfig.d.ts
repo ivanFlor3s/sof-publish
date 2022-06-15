@@ -1,6 +1,7 @@
-import { ActionForm, FormConfigTypes, OptionsFormConfig, ValidationForm } from "sof-ng-controls";
+import { ActionForm, Emptyfield, FieldControlType, OptionsFormConfig, ValidationForm } from "sof-ng-controls";
+export declare type i18nFormFieldsConfig = (i18nDynamicFormConfig | Emptyfield);
 export interface i18nDynamicFormConfig {
-    type: FormConfigTypes;
+    type: FieldControlType;
     id: number;
     /**
      * Representa el nombre del control que va a tomar el campo

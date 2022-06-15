@@ -1,8 +1,8 @@
 import { EventEmitter, AfterViewInit, ChangeDetectorRef, OnDestroy, SimpleChanges, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { FormConfig, FormularioService, Emptyfield, FormConfigTypes } from 'sof-ng-controls';
-import { i18nDynamicFormConfig } from './DynamicFormConfig';
+import { FormConfig, FormularioService, FormConfigTypes } from 'sof-ng-controls';
+import { i18nFormFieldsConfig } from './DynamicFormConfig';
 import * as i0 from "@angular/core";
 export declare class I18nDynamicFormComponent implements AfterViewInit, OnDestroy, OnChanges {
     private cdRef;
@@ -12,7 +12,7 @@ export declare class I18nDynamicFormComponent implements AfterViewInit, OnDestro
     valueChanges: Subscription;
     gutterSize: string;
     rowHeight: string;
-    fields: (i18nDynamicFormConfig | Emptyfield)[];
+    fields: i18nFormFieldsConfig[];
     FieldsValues: any;
     submitEvent: EventEmitter<any>;
     onChangeEvent: EventEmitter<any>;
@@ -27,6 +27,7 @@ export declare class I18nDynamicFormComponent implements AfterViewInit, OnDestro
     ngAfterViewChecked(): void;
     ngOnDestroy(): void;
     OnSubmit(): void;
+    getRowHeight(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<I18nDynamicFormComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<I18nDynamicFormComponent, "lib-i18n-dynamic-form", never, { "cols": "cols"; "gutterSize": "gutterSize"; "rowHeight": "rowHeight"; "fields": "fields"; "FieldsValues": "FieldsValues"; "formConfig": "formConfig"; }, { "submitEvent": "submitEvent"; "onChangeEvent": "onChangeEvent"; }, never, never>;
 }
