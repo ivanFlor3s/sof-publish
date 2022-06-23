@@ -22,6 +22,7 @@ export interface FieldConfig {
         label: string;
         placeholder?: string;
         customClass?: string;
+        maxLength?: string;
         /**
          * Tiene valor en un campo text-area: Es el numero de filas que va a tener
          */
