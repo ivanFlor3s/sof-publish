@@ -216,7 +216,7 @@ class ErrorComponent {
         return this.errorsList;
     }
     ngOnChanges(changes) {
-        if (changes['controlInvalido']?.currentValue) {
+        if (changes['controlInvalido']?.currentValue || !!changes['errors']?.currentValue) {
             this.actualizarErrores();
         }
     }

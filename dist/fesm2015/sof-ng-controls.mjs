@@ -222,8 +222,8 @@ class ErrorComponent {
         return this.errorsList;
     }
     ngOnChanges(changes) {
-        var _a;
-        if ((_a = changes['controlInvalido']) === null || _a === void 0 ? void 0 : _a.currentValue) {
+        var _a, _b;
+        if (((_a = changes['controlInvalido']) === null || _a === void 0 ? void 0 : _a.currentValue) || !!((_b = changes['errors']) === null || _b === void 0 ? void 0 : _b.currentValue)) {
             this.actualizarErrores();
         }
     }
