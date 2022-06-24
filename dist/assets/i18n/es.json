@@ -1,0 +1,131 @@
+{
+    "CONFIG": {
+      "LABEL-SELECT": "Cambiar idioma global",
+      "PLACEHOLDER-SELECT": "Idioma",
+      "LIST-SELECT": [
+        "es",
+        "en"
+      ]
+    },
+
+    "ESTADOS": {
+      "ACTIVO": "Activo",
+      "INACTIVO": "Inactivo",
+      "SUSPENDIDO": "Suspendido"
+    },
+    
+    "LABELS": {
+      "TELEFONO":"Teléfono",
+      "TELEFONO-PLACEHOLDER":"Escribí teléfono",
+      "EMAIL":"Correo electrónico",
+      "EMAIL-PLACEHOLDER":"Escribí correo electrónico",
+      "CUIT":"CUIT",
+      "CUIT-SIN-GUIONES":"CUIT (sin guiones)",
+      "CUIT-PLACEHOLDER":"Escribí CUIT",
+      "PROVINCIA":"Provincia",
+      "PROVINCIA-PLACEHOLDER":"Seleccioná provincia",
+      "DEPARTAMENTO":"Departamento",
+      "DEPARTAMENTO-PLACEHOLDER":"Seleccioná departamento",
+      "LOCALIDAD":"Localidad",
+      "LOCALIDAD-PLACEHOLDER":"Seleccioná localidad",
+      "DIRECCION":"Dirección",
+      "DIRECCION-PLACEHOLDER":"Escribí dirección",
+      "CALLE":"Calle",
+      "CALLE-PLACEHOLDER":"Escribí nombre de calle",
+      "NUMERO":"Número",
+      "NUMERO-PLACEHOLDER":"Escribí número",
+      "PISO":"Piso",
+      "PISO-PLACEHOLDER":"Escribí número",
+      "DEPTO":"Departamento",
+      "DEPTO-PLACEHOLDER":"Escribí letra o número",
+      "COD-POSTAL":"Código postal",
+      "COD-POSTAL-PLACEHOLDER":"Escribí código postal",
+      "CREACION":"Creación",
+      "ESTADO":"Estado",
+      "ESTADO-PLACEHOLDER":"Seleccioná estado",
+      "CREACION-DESDE":"Fecha de Creación Desde",
+      "CREACION-HASTA":"Fecha de Creación Hasta",
+      "DATOS-OBLIGATORIOS":"Datos obligatorios"
+    },
+    
+    "SEARCHBOX" : {
+      "BUSCAR": "Buscar"
+    },
+
+    "BUTTONS": {
+      "GUARDAR": "GUARDAR",
+      "CANCELAR": "CANCELAR",
+      "FILTROS": "FILTROS",
+      "DESCARGAR": "DESCARGAR",
+      "LIMPIAR-FILTROS": "LIMPIAR FILTROS",
+      "APLICAR": "APLICAR",
+      "SI-ACTION": "SÍ, {{action}}"
+    },
+    
+    "MESSAGES": {
+      "TOASTS": {
+        "PRESTADORES": {
+          "ACTION-SUCCESS": "Se {{action}} el Prestador \n{{name}}"
+        },
+        "ACTIONS": {
+          "CREO": "creó",
+          "EDITO": "editó",
+          "ACTIVO": "Activo",
+          "INACTIVO": "Inactivo",
+          "SUSPENDIO": "Suspendio"
+        }
+      },
+      "ALERTS": {
+        "PRESTADORES": {
+          "ACTION-CONFIRM": "¿Estás seguro de {{action}} el \nPrestador {{name}}?"
+        },
+        "ACTIONS": {
+          "ACTIVAR": "Activar",
+          "INACTIVAR": "Inactivar",
+          "SUSPENDER": "Suspender"
+        }
+      }
+    },
+
+    "GRID":{
+      "MENU":{
+        "OPTION-ACTIVAR":"Activar",
+        "OPTION-INACTIVAR":"Inactivar",
+        "OPTION-SUSPENDER":"Suspender",
+        "OPTION-REACTIVAR":"Reactivar",
+        "OPTION-DESSUSPENDER":"Dessuspender",
+        "OPTION-EDITAR": "Editar",
+        "TYPEHEAD-OPTIONS":"Opciones"
+      },
+      
+      "PAGE-SIZETEXT":"Filas por páginas",
+      "to": "-",
+      "of": "de",
+      "page": "Página",
+      "noRowsToShow": "No hay filas para mostrar"
+    },
+
+    "ERROR": {
+      "DEFAULT-REQUIRED": "Campo obligatorio",
+      "DEFAULT-MIN": "Debe ser mayor",
+      "DEFAULT-MAX": "Debe ser menor",
+      "DEFAULT-FUNCTION": "No pasa la validación personalizada",
+      "DEFAULT-MINLENGTH": "Texto muy corto",
+      "DEFAULT-MAXLENGTH": "Texto muy largo",
+      "DEFAULT-PATTERN": "No tiene el formato correcto",
+      "DEFAULT-MINDATE": "Debe ser una fecha posterior",
+      "DEFAULT-MAXDATE": "Debe ser una fecha anterior",
+      "DEFAULT-AFTER-OR-EQUAL-TO": "Debe ser una fecha posterior",
+      "DEFAULT-BEFORE-OR-EQUAL-TO": "Debe ser una fecha anterior",
+      "DEFAULT-MAX-FILE-SIZE": "Supera el peso máximo permitido",
+      "DEFAULT-ACCEPTED-FILE-TYPES": "El tipo de archivo no es permitido",
+      "DEFAULT-EMAIL": "No es un email válido",
+      "DEFAULT-REQUIRED-IF": "Campo obligatorio",
+      "DEFAULT-REQUIRED-IF-FIELD-IS-EMPTY": "Campo obligatorio",
+      "DEFAULT-REQUIRED-IF-FIELD-IS-NOT-EMPTY": "Campo obligatorio",
+      "DEFAULT-LESS-OR-EQUAL-TO": "Debe ser menor",
+      "DEFAULT-MORE-OR-EQUAL-TO": "Debe ser mayor"
+    }
+  
+
+}

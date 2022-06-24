@@ -1,0 +1,130 @@
+{
+  "CONFIG": {
+    "LABEL-SELECT": "Change global language",
+    "PLACEHOLDER-SELECT": "Language",
+    "LIST-SELECT": [
+      "es",
+      "en"
+    ]
+  },
+
+  "ESTADOS": {
+    "ACTIVO": "Active",
+    "INACTIVO": "Inactive",
+    "SUSPENDIDO": "Suspended"
+  },
+  
+  "LABELS": {
+    "TELEFONO":"Phone",
+    "TELEFONO-PLACEHOLDER":"Write phone",
+    "EMAIL":"Email",
+    "EMAIL-PLACEHOLDER":"Write email",
+    "CUIT":"CUIT",
+    "CUIT-SIN-GUIONES":"CUIT (no hyphens)",
+    "CUIT-PLACEHOLDER":"Write CUIT",
+    "PROVINCIA":"Province",
+    "PROVINCIA-PLACEHOLDER":"Select Province",
+    "DEPARTAMENTO":"Department",
+    "DEPARTAMENTO-PLACEHOLDER":"Select department",
+    "LOCALIDAD":"Locality",
+    "LOCALIDAD-PLACEHOLDER":"Select locality",
+    "DIRECCION":"Address",
+    "DIRECCION-PLACEHOLDER":"Write Address",
+    "CALLE":"Street",
+    "CALLE-PLACEHOLDER":"Write street",
+    "NUMERO":"Number",
+    "NUMERO-PLACEHOLDER":"Write number",
+    "PISO":"Floor",
+    "PISO-PLACEHOLDER":"Write floor",
+    "DEPTO":"Apartment",
+    "DEPTO-PLACEHOLDER":"Write letter or number",
+    "COD-POSTAL":"Zip Code",
+    "COD-POSTAL-PLACEHOLDER":"Write zip code",
+    "CREACION":"Creation",
+    "ESTADO":"State",
+    "ESTADO-PLACEHOLDER":"Select state",
+    "CREACION-DESDE":"Creation date from",
+    "CREACION-HASTA":"Creation date to",
+    "DATOS-OBLIGATORIOS":"Required data"
+  },
+  
+  "SEARCHBOX" : {
+    "BUSCAR": "Search"
+  },
+
+  "BUTTONS": {
+    "GUARDAR": "SAVE",
+    "CANCELAR": "CANCEL",
+    "FILTROS": "FILTERS",
+    "DESCARGAR": "DOWNLOAD",
+    "LIMPIAR-FILTROS": "CLEAN FILTERS",
+    "APLICAR": "APPLY",
+    "SI-ACTION": "YES, {{action}}"
+  },
+  
+  "MESSAGES": {
+    "TOASTS": {
+      "XXX": {
+        "ACTION-SUCCESS": "The XXX \n{{name}} \nwas {{action}}"
+      },
+      "ACTIONS": {
+        "CREO": "created",
+        "EDITO": "edited",
+        "ACTIVO": "Activated",
+        "INACTIVO": "Inactivated",
+        "SUSPENDIO": "Suspended"
+      }
+    },
+    "ALERTS": {
+      "XXX": {
+        "ACTION-CONFIRM": "Are you sure to {{action}} the \nXXX {{name}}?"
+      },
+      "ACTIONS": {
+        "ACTIVAR": "Activate",
+        "INACTIVAR": "Inactivate",
+        "SUSPENDER": "Suspend"
+      }
+    }
+  },
+
+
+  "GRID":{
+    "MENU":{
+      "OPTION-ACTIVAR":"Activate",
+      "OPTION-INACTIVAR":"Inactivate",
+      "OPTION-SUSPENDER":"Suspend",
+      "OPTION-REACTIVAR":"Reactivate",
+      "OPTION-EDITAR": "Edit",
+      "TYPEHEAD-OPTIONS":"Options"
+    },
+    
+    "PAGE-SIZETEXT":"Rows per page",
+    "to": "-",
+    "of": "of",
+    "page": "Page",
+    "noRowsToShow": "There are no rows to display"
+  },
+
+  "ERROR": {
+    "DEFAULT-REQUIRED": "Obligatory field",
+    "DEFAULT-MIN": "Value must be bigger",
+    "DEFAULT-MAX": "Value must be smaller",
+    "DEFAULT-FUNCTION": "Don't meet custom validation",
+    "DEFAULT-MINLENGTH": "Value must be longer",
+    "DEFAULT-MAXLENGTH": "Value must be shorter",
+    "DEFAULT-PATTERN": "Incorrect format",
+    "DEFAULT-MINDATE": "Date must be later",
+    "DEFAULT-MAXDATE": "Date must be earlier",
+    "DEFAULT-AFTER-OR-EQUAL-TO": "Date must be later",
+    "DEFAULT-BEFORE-OR-EQUAL-TO": "Date must be earlier",
+    "DEFAULT-MAX-FILE-SIZE": "Exceeded max file size",
+    "DEFAULT-ACCEPTED-FILE-TYPES": "File type not supported",
+    "DEFAULT-EMAIL": "Not valid email address",
+    "DEFAULT-REQUIRED-IF": "Obligatory field",
+    "DEFAULT-REQUIRED-IF-FIELD-IS-EMPTY": "Obligatory field",
+    "DEFAULT-REQUIRED-IF-FIELD-IS-NOT-EMPTY": "Obligatory field",
+    "DEFAULT-LESS-OR-EQUAL-TO": "Value must be bigger",
+    "DEFAULT-MORE-OR-EQUAL-TO": "Value must be smaller"
+  }
+  
+}
