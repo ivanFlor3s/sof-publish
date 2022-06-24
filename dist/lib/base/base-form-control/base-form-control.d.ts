@@ -7,6 +7,7 @@ export declare class BaseFormFieldComponent implements ControlValueAccessor, DoC
     description: string;
     label: string;
     placeholder: string;
+    maxLength: string;
     change: EventEmitter<any>;
     value: any;
     disabled: boolean;
@@ -27,5 +28,5 @@ export declare class BaseFormFieldComponent implements ControlValueAccessor, DoC
     protected changeValue(value: any): void;
     protected setInputValue(value: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<BaseFormFieldComponent, [{ optional: true; self: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<BaseFormFieldComponent, "ng-component", never, { "info": "info"; "description": "description"; "label": "label"; "placeholder": "placeholder"; }, { "change": "change"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<BaseFormFieldComponent, "ng-component", never, { "info": "info"; "description": "description"; "label": "label"; "placeholder": "placeholder"; "maxLength": "maxLength"; }, { "change": "change"; }, never, never>;
 }

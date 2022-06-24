@@ -17,3 +17,4 @@ export declare enum FormConfigTypes {
     Password = "password",
     EmptyCol = "empty-col"
 }
+export declare type FieldControlType = FormConfigTypes.Text | FormConfigTypes.DenseText | FormConfigTypes.TextArea | FormConfigTypes.Number | FormConfigTypes.Checkbox | FormConfigTypes.Radio | FormConfigTypes.Select | FormConfigTypes.Autocomplete | FormConfigTypes.Date | FormConfigTypes.Time | FormConfigTypes.File | FormConfigTypes.Phone | FormConfigTypes.Password;

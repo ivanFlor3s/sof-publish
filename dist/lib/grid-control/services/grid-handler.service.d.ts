@@ -13,7 +13,7 @@ export declare class GridHandlerService {
     updateRowState(obj: any, action: string): void;
     updateDataState(action: string): void;
     deleteRowsSelected(): void;
-    finalTransaction(data: any): void;
+    finalTransaction(data: any[]): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GridHandlerService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<GridHandlerService>;
 }
