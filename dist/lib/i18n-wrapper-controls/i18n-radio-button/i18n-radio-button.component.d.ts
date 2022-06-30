@@ -12,11 +12,12 @@ export declare class I18nRadioButtonComponent extends RadioButtonMaterialControl
         text: string;
         value: any;
     }[];
+    labelToTranslate: string;
     listToTranslate: any[];
     constructor(controlDir: NgControl, pipeTranslate: TranslatePipe, _srvTranslatePipe: TranslateService);
     translateOptions(): void;
     ngAfterViewInit(): void;
     getFbGroup(): FormGroup;
     static ɵfac: i0.ɵɵFactoryDeclaration<I18nRadioButtonComponent, [{ self: true; }, null, null]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<I18nRadioButtonComponent, "app-i18n-radio-button", never, { "listToTranslate": "listToTranslate"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<I18nRadioButtonComponent, "app-i18n-radio-button", never, { "labelToTranslate": "labelToTranslate"; "listToTranslate": "listToTranslate"; }, {}, never, never>;
 }
