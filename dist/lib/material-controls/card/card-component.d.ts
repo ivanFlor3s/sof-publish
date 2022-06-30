@@ -9,5 +9,5 @@ export declare class CardComponent {
     isSubCard: boolean;
     toggleExpand(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<CardComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<CardComponent, "sof-card", never, { "titleText": "titleText"; "subTitleText": "subTitleText"; "expandable": "expandable"; "isSubCard": "isSubCard"; }, { "onToggleExpand": "onToggleExpand"; }, never, ["[header]", "[body]", "[footer]"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<CardComponent, "sof-card", never, { "titleText": "titleText"; "subTitleText": "subTitleText"; "expandable": "expandable"; "expanded": "expanded"; "isSubCard": "isSubCard"; }, { "onToggleExpand": "onToggleExpand"; }, never, ["[header]", "[body]", "[footer]"]>;
 }
