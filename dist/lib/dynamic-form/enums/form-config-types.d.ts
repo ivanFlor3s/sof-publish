@@ -15,6 +15,7 @@ export declare enum FormConfigTypes {
     File = "file",
     Phone = "phone",
     Password = "password",
-    EmptyCol = "empty-col"
+    EmptyCol = "empty-col",
+    CheckboxGroup = "checkbox-group"
 }
-export declare type FieldControlType = FormConfigTypes.Text | FormConfigTypes.DenseText | FormConfigTypes.TextArea | FormConfigTypes.Number | FormConfigTypes.Checkbox | FormConfigTypes.Radio | FormConfigTypes.Select | FormConfigTypes.Autocomplete | FormConfigTypes.Date | FormConfigTypes.Time | FormConfigTypes.File | FormConfigTypes.Phone | FormConfigTypes.Password;
+export declare type FieldControlType = FormConfigTypes.Text | FormConfigTypes.DenseText | FormConfigTypes.TextArea | FormConfigTypes.Number | FormConfigTypes.Checkbox | FormConfigTypes.Radio | FormConfigTypes.Select | FormConfigTypes.Autocomplete | FormConfigTypes.Date | FormConfigTypes.Time | FormConfigTypes.File | FormConfigTypes.Phone | FormConfigTypes.Password | FormConfigTypes.CheckboxGroup;
