@@ -276,6 +276,7 @@ class I18nRadioButtonComponent extends RadioButtonMaterialControlComponent {
         this._srvTranslatePipe.onLangChange.subscribe(() => {
             this.translateOptions();
         });
+        this.translateOptions();
     }
     getFbGroup() {
         return this.controlDir.control?.parent || new FormGroup({});
