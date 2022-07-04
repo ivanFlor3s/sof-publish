@@ -10,7 +10,7 @@ export declare class GridHandlerService {
     constructor();
     setConfigs(gridApiParam: GridApi, rowDataParam: any[], dataIdParam: any): void;
     addRow(objToAdd: any): void;
-    updateRowState(obj: any, action: string): void;
+    updateRowState(obj: any, action: string, column?: string): void;
     updateDataState(action: string): void;
     deleteRowsSelected(): void;
     finalTransaction(data: any[]): void;
