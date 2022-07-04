@@ -1,8 +1,9 @@
+import { OnInit, AfterViewInit } from '@angular/core';
 import { CheckboxGroupMaterialControlComponent } from 'sof-ng-controls';
 import { FormGroup, NgControl } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import * as i0 from "@angular/core";
-export declare class I18nCheckboxGroupControlComponent extends CheckboxGroupMaterialControlComponent {
+export declare class I18nCheckboxGroupControlComponent extends CheckboxGroupMaterialControlComponent implements OnInit, AfterViewInit {
     controlDir: NgControl;
     protected pipeTranslate: TranslatePipe;
     _srvTranslatePipe: TranslateService;
@@ -14,6 +15,7 @@ export declare class I18nCheckboxGroupControlComponent extends CheckboxGroupMate
     labelToTranslate: string;
     listToTranslate: any[];
     constructor(controlDir: NgControl, pipeTranslate: TranslatePipe, _srvTranslatePipe: TranslateService);
+    ngOnInit(): void;
     translateOptions(): void;
     ngAfterViewInit(): void;
     getFbGroup(): FormGroup;

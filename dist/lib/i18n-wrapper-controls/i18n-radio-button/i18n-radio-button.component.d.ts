@@ -1,9 +1,9 @@
-import { AfterViewInit } from '@angular/core';
+import { AfterViewInit, OnInit } from '@angular/core';
 import { RadioButtonMaterialControlComponent } from 'sof-ng-controls';
 import { FormGroup, NgControl } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import * as i0 from "@angular/core";
-export declare class I18nRadioButtonComponent extends RadioButtonMaterialControlComponent implements AfterViewInit {
+export declare class I18nRadioButtonComponent extends RadioButtonMaterialControlComponent implements AfterViewInit, OnInit {
     controlDir: NgControl;
     protected pipeTranslate: TranslatePipe;
     _srvTranslatePipe: TranslateService;
@@ -15,6 +15,7 @@ export declare class I18nRadioButtonComponent extends RadioButtonMaterialControl
     labelToTranslate: string;
     listToTranslate: any[];
     constructor(controlDir: NgControl, pipeTranslate: TranslatePipe, _srvTranslatePipe: TranslateService);
+    ngOnInit(): void;
     translateOptions(): void;
     ngAfterViewInit(): void;
     getFbGroup(): FormGroup;
