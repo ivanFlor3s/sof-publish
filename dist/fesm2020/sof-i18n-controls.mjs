@@ -1,7 +1,7 @@
 import * as i0 from '@angular/core';
 import { Component, Self, Input, ViewChild, EventEmitter, Output, NgModule, Inject } from '@angular/core';
 import * as i1 from 'sof-ng-controls';
-import { BaseFormFieldComponent, AutocompleteMaterialControlComponent, DatePickerMaterialControlComponent, DenseTextMaterialControlComponent, NumberMaterialControlComponent, PasswordMaterialControlComponent, PhoneMaterialControlComponent, RadioButtonMaterialControlComponent, SelectMaterialControlComponent, TextMaterialControlComponent, TextAreaMaterialControlComponent, ValidationTypes, FileUploadMaterialControlComponent, TimePickerMaterialControlComponent, CheckboxGroupMaterialControlComponent, FormConfigTypes, FormularioService, DocControlComponent, MaterialControlsModule, BadgeComponent, RowOptionsComponent, GridControlComponent, GridControlModule } from 'sof-ng-controls';
+import { BaseFormFieldComponent, AutocompleteMaterialControlComponent, DatePickerMaterialControlComponent, DenseTextMaterialControlComponent, NumberMaterialControlComponent, PasswordMaterialControlComponent, PhoneMaterialControlComponent, RadioButtonMaterialControlComponent, SearchBoxMaterialControlComponent, SelectMaterialControlComponent, TextMaterialControlComponent, TextAreaMaterialControlComponent, ValidationTypes, FileUploadMaterialControlComponent, TimePickerMaterialControlComponent, CheckboxGroupMaterialControlComponent, FormConfigTypes, FormularioService, DocControlComponent, MaterialControlsModule, BadgeComponent, RowOptionsComponent, GridControlComponent, GridControlModule } from 'sof-ng-controls';
 import * as i2 from '@angular/forms';
 import { FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import * as i2$1 from '@ngx-translate/core';
@@ -300,15 +300,21 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImpor
                 type: Input
             }] } });
 
-class I18nSearchBoxControlComponent {
+class I18nSearchBoxControlComponent extends SearchBoxMaterialControlComponent {
+    reset(emit = false) {
+        this.searchBox.reset(emit);
+    }
 }
-I18nSearchBoxControlComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nSearchBoxControlComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-I18nSearchBoxControlComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nSearchBoxControlComponent, selector: "app-i18n-search-box-control", inputs: { placeholderToTranslate: "placeholderToTranslate" }, ngImport: i0, template: "     <sof-search-box-control  placeholder=\"{{ placeholderToTranslate | translate}}\">\r\n    </sof-search-box-control>", components: [{ type: i1.SearchBoxMaterialControlComponent, selector: "sof-search-box-control", inputs: ["placeholder", "disabled"], outputs: ["onInput"] }], pipes: { "translate": i2$1.TranslatePipe } });
+I18nSearchBoxControlComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nSearchBoxControlComponent, deps: null, target: i0.ɵɵFactoryTarget.Component });
+I18nSearchBoxControlComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nSearchBoxControlComponent, selector: "app-i18n-search-box-control", inputs: { placeholderToTranslate: "placeholderToTranslate" }, viewQueries: [{ propertyName: "searchBox", first: true, predicate: ["searchBox"], descendants: true }], usesInheritance: true, ngImport: i0, template: "     <sof-search-box-control \r\n     #searchBox\r\n     placeholder=\"{{ placeholderToTranslate | translate}}\"\r\n     (onInput)=\"onInputEvent($event)\"\r\n     [disabled]=\"disabled\">\r\n    </sof-search-box-control>", components: [{ type: i1.SearchBoxMaterialControlComponent, selector: "sof-search-box-control", inputs: ["placeholder", "disabled"], outputs: ["onInput"] }], pipes: { "translate": i2$1.TranslatePipe } });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nSearchBoxControlComponent, decorators: [{
             type: Component,
-            args: [{ selector: 'app-i18n-search-box-control', template: "     <sof-search-box-control  placeholder=\"{{ placeholderToTranslate | translate}}\">\r\n    </sof-search-box-control>" }]
+            args: [{ selector: 'app-i18n-search-box-control', template: "     <sof-search-box-control \r\n     #searchBox\r\n     placeholder=\"{{ placeholderToTranslate | translate}}\"\r\n     (onInput)=\"onInputEvent($event)\"\r\n     [disabled]=\"disabled\">\r\n    </sof-search-box-control>" }]
         }], propDecorators: { placeholderToTranslate: [{
                 type: Input
+            }], searchBox: [{
+                type: ViewChild,
+                args: ['searchBox']
             }] } });
 
 class I18nSelectControlComponent extends I18nOptions {
