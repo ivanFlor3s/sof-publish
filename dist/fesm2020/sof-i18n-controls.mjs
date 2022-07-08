@@ -14,8 +14,9 @@ import * as i18 from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import * as i3 from '@angular/material/core';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import * as i2$3 from '@angular/material/icon';
 import { MatIconModule } from '@angular/material/icon';
 import * as i3$1 from '@angular/material/menu';
@@ -598,14 +599,14 @@ SharedModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
-        MatNativeDateModule,
+        MatLuxonDateModule,
         TranslateModule,
         HttpClientModule], exports: [CommonModule,
         MaterialControlsModule,
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
-        MatNativeDateModule,
+        MatLuxonDateModule,
         TranslateModule,
         HttpClientModule] });
 SharedModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SharedModule, imports: [[
@@ -614,7 +615,7 @@ SharedModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "
             ReactiveFormsModule,
             FormsModule,
             HttpClientModule,
-            MatNativeDateModule,
+            MatLuxonDateModule,
             TranslateModule,
             HttpClientModule
         ], CommonModule,
@@ -622,7 +623,7 @@ SharedModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
-        MatNativeDateModule,
+        MatLuxonDateModule,
         TranslateModule,
         HttpClientModule] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SharedModule, decorators: [{
@@ -634,7 +635,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImpor
                         ReactiveFormsModule,
                         FormsModule,
                         HttpClientModule,
-                        MatNativeDateModule,
+                        MatLuxonDateModule,
                         TranslateModule,
                         HttpClientModule
                     ],
@@ -644,7 +645,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImpor
                         ReactiveFormsModule,
                         FormsModule,
                         HttpClientModule,
-                        MatNativeDateModule,
+                        MatLuxonDateModule,
                         TranslateModule,
                         HttpClientModule
                     ]
