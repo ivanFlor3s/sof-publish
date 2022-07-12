@@ -481,19 +481,15 @@ class CheckboxControlComponent extends BaseFormFieldComponent {
     }
     normalizeValue(value) {
         if (value == '')
-            return null;
+            return false;
         if (typeof value == 'string') {
             value = value == 'true';
         }
         return value;
     }
     writeValue(value) {
-        if (value) {
-            this.value = value || '';
-        }
-        else {
-            this.value = '';
-        }
+        value = this.normalizeValue(value);
+        this.changeValue(value);
     }
 }
 CheckboxControlComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: CheckboxControlComponent, deps: null, target: i0.ɵɵFactoryTarget.Component });
