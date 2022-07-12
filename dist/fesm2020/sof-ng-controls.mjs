@@ -480,16 +480,15 @@ class CheckboxControlComponent extends BaseFormFieldComponent {
         this.changeValue(value);
     }
     normalizeValue(value) {
-        if (value == '')
+        if (value === '')
             return false;
         if (typeof value == 'string') {
             value = value == 'true';
         }
-        return value;
+        return !!value;
     }
     writeValue(value) {
-        value = this.normalizeValue(value);
-        this.changeValue(value);
+        this.value = this.normalizeValue(value);
     }
 }
 CheckboxControlComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: CheckboxControlComponent, deps: null, target: i0.ɵɵFactoryTarget.Component });
@@ -756,8 +755,7 @@ class DatePickerControlComponent extends BaseFormFieldComponent {
         this.changeValue(value);
     }
     writeValue(value) {
-        value = this.normalizeValue(value);
-        this.changeValue(value);
+        this.value = this.normalizeValue(value);
     }
     normalizeValue(value) {
         if (value == '')
