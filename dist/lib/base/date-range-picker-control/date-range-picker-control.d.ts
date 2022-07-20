@@ -17,6 +17,7 @@ export declare class DateRangePickerControlComponent extends BaseFormFieldCompon
     ngOnInit(): void;
     buildAndLoadForm(): void;
     togglePicker(picker: MatDateRangePicker<any>): void;
+    writeValue(value: any): void;
     listenChanges(): void;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<DateRangePickerControlComponent, [null, { optional: true; self: true; }]>;
