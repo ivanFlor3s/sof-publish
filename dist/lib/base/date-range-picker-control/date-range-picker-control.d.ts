@@ -1,10 +1,10 @@
-import { OnDestroy, OnInit } from '@angular/core';
+import { OnDestroy, OnInit, DoCheck } from '@angular/core';
 import { FormBuilder, FormGroup, NgControl } from '@angular/forms';
 import { MatDateRangePicker } from '@angular/material/datepicker';
 import { Subscription } from 'rxjs';
 import { BaseFormFieldComponent } from '../base-form-control/base-form-control';
 import * as i0 from "@angular/core";
-export declare class DateRangePickerControlComponent extends BaseFormFieldComponent implements OnInit, OnDestroy {
+export declare class DateRangePickerControlComponent extends BaseFormFieldComponent implements OnInit, DoCheck, OnDestroy {
     private fb;
     controlDir: NgControl;
     editable: boolean;
@@ -19,6 +19,8 @@ export declare class DateRangePickerControlComponent extends BaseFormFieldCompon
     togglePicker(picker: MatDateRangePicker<any>): void;
     writeValue(value: any): void;
     listenChanges(): void;
+    validarRequired(): void;
+    ngDoCheck(): void;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<DateRangePickerControlComponent, [null, { optional: true; self: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<DateRangePickerControlComponent, "ng-component", never, { "editable": "editable"; "openOnClick": "openOnClick"; "placeHolderFromDate": "placeHolderFromDate"; "placeHolderToDate": "placeHolderToDate"; }, {}, never, never>;

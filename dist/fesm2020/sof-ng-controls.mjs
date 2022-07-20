@@ -1523,6 +1523,7 @@ class DateRangePickerControlComponent extends BaseFormFieldComponent {
     }
     ngOnInit() {
         this.buildAndLoadForm();
+        this.validarRequired();
     }
     buildAndLoadForm() {
         this.rangeForm = this.fb.group({
@@ -1534,7 +1535,7 @@ class DateRangePickerControlComponent extends BaseFormFieldComponent {
         if (this.controlDir.value) {
             this.rangeForm.patchValue({
                 start: this.controlDir.control?.value.desde,
-                end: this.controlDir.control?.value.hasta
+                end: this.controlDir.control?.value.hasta,
             });
         }
     }
@@ -1550,18 +1551,37 @@ class DateRangePickerControlComponent extends BaseFormFieldComponent {
         this.value = value;
     }
     listenChanges() {
-        this.changesSub = this.rangeForm.valueChanges.subscribe(values => {
+        this.changesSub = this.rangeForm.valueChanges.subscribe((values) => {
             this.controlDir.control?.setValue(values);
+            //Si es requerido valido que ambos campos (start o end)tengan valor
+            this.validarRequired();
+        });
+    }
+    validarRequired() {
+        const noDatesInForm = Object.keys(this.rangeForm.value).some((k) => !!!this.rangeForm.value[k]);
+        const validator = !!this.controlDir.control?.validator &&
+            this.controlDir.control.validator({});
+        if (noDatesInForm) {
             if (!!this.controlDir.control?.validator) {
-                const validator = this.controlDir.control.validator({});
-                //Si es requerido valido que ambos campos (start o end)tengan valor
-                if (!!validator && !!validator['required'] && Object.keys(this.rangeForm.value).some(k => !!!this.rangeForm.value[k]))
+                if (!!validator && !!validator['required']) {
                     this.controlDir.control.setErrors({
                         ...this.controlDir.control.errors,
                         required: validator['required'],
                     });
+                }
             }
-        });
+        }
+        if (this.controlDir.control) {
+            this.isRequired =
+                this.controlDir.control.invalid &&
+                    Boolean(validator && validator.hasOwnProperty('required'));
+        }
+    }
+    ngDoCheck() {
+        if (this.controlDir.control?.touched) {
+            this.rangeForm.markAllAsTouched();
+            this.validarRequired();
+        }
     }
     ngOnDestroy() {
         this.changesSub.unsubscribe();
@@ -1572,7 +1592,7 @@ DateRangePickerControlComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: 
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.3", ngImport: i0, type: DateRangePickerControlComponent, decorators: [{
             type: Component,
             args: [{
-                    template: ''
+                    template: '',
                 }]
         }], ctorParameters: function () { return [{ type: i1.FormBuilder }, { type: i1.NgControl, decorators: [{
                     type: Optional
