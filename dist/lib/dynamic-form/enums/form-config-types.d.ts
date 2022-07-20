@@ -16,6 +16,7 @@ export declare enum FormConfigTypes {
     Phone = "phone",
     Password = "password",
     EmptyCol = "empty-col",
-    CheckboxGroup = "checkbox-group"
+    CheckboxGroup = "checkbox-group",
+    DateRangePicker = "date-range-picker"
 }
-export declare type FieldControlType = FormConfigTypes.Text | FormConfigTypes.DenseText | FormConfigTypes.TextArea | FormConfigTypes.Number | FormConfigTypes.Checkbox | FormConfigTypes.Radio | FormConfigTypes.Select | FormConfigTypes.Autocomplete | FormConfigTypes.Date | FormConfigTypes.Time | FormConfigTypes.File | FormConfigTypes.Phone | FormConfigTypes.Password | FormConfigTypes.CheckboxGroup;
+export declare type FieldControlType = FormConfigTypes.Text | FormConfigTypes.DenseText | FormConfigTypes.TextArea | FormConfigTypes.Number | FormConfigTypes.Checkbox | FormConfigTypes.Radio | FormConfigTypes.Select | FormConfigTypes.Autocomplete | FormConfigTypes.Date | FormConfigTypes.Time | FormConfigTypes.File | FormConfigTypes.Phone | FormConfigTypes.Password | FormConfigTypes.CheckboxGroup | FormConfigTypes.DateRangePicker;

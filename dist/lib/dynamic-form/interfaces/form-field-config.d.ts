@@ -1,5 +1,6 @@
 import { FieldControlType, FormConfigTypes } from "../enums/form-config-types";
 import { ActionForm } from "./action-form";
+import { DateRangePickerConfig } from "./date-range-picker-config";
 import { OptionsFormConfig } from "./option-config";
 import { ValidationForm } from "./validation-form";
 export declare type FormFieldConfig = (FieldConfig | Emptyfield);
@@ -59,6 +60,12 @@ export interface FieldConfig {
     action: ActionForm[];
     options?: OptionsFormConfig;
     validations: ValidationForm[];
+    /**
+     * Configuracion para el date range picker
+     * Editable: Inputs editables, readonly en caso de false
+     * OpenOnClick: Si es true-> Toggle del calendario al hacer click en el input
+     */
+    dateRangePickerConfig?: DateRangePickerConfig;
     /**
      * Dependiendo del valor se va mostrar o esconder el campo
      */
