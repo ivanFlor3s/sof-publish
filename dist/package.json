@@ -1,6 +1,6 @@
 {
   "name": "sof-ng-controls",
-  "version": "1.9.6",
+  "version": "1.10.2",
   "peerDependencies": {
     "@angular/material-luxon-adapter": "^13.2.5",
     "@angular/material": ">=11.0.0",
