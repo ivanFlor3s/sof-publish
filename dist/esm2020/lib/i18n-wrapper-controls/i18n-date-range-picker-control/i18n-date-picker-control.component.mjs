@@ -1,0 +1,42 @@
+import { Component, Input, ViewChild } from '@angular/core';
+import { DateRangePickerMaterialControlComponent } from 'sof-ng-controls';
+import { I18nBase } from '../../shared/models/base';
+import * as i0 from "@angular/core";
+import * as i1 from "sof-ng-controls";
+import * as i2 from "@angular/forms";
+import * as i3 from "@ngx-translate/core";
+export class I18nDateRangePickerControlComponent extends I18nBase {
+    constructor() {
+        super(...arguments);
+        this.placeholderToTranslate = 'dd/MM/yyyy';
+        /**
+         * En caso de true, se va a mostrar el calendario al hacer click en cualquier parte del input
+         */
+        this.openOnClick = false;
+        /**
+         * En caso de true se va a permitir editar las fechas, caso contrario estaran readonly y solo se podra editar desde el calendario
+         */
+        this.editable = false;
+    }
+    ngAfterViewInit() {
+        this.control.errorControl.translateFuncion = (param) => {
+            return this.pipeTranslate.transform(param);
+        };
+    }
+}
+I18nDateRangePickerControlComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nDateRangePickerControlComponent, deps: null, target: i0.ɵɵFactoryTarget.Component });
+I18nDateRangePickerControlComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nDateRangePickerControlComponent, selector: "app-i18n-date-range-picker-control", inputs: { placeholderToTranslate: "placeholderToTranslate", openOnClick: "openOnClick", editable: "editable" }, viewQueries: [{ propertyName: "control", first: true, predicate: DateRangePickerMaterialControlComponent, descendants: true }], usesInheritance: true, ngImport: i0, template: "<ng-container [formGroup]=\"getFbGroup()\">\r\n  <!--  TODO [placeHolderFromDate]=\"placeholderToTranslate\" \r\n    No paso por pipe porque no se muestra el placeholder del input 1 hasta que se hace click \r\n  -->\r\n  <sof-date-range-picker-control\r\n    label=\"{{labelToTranslate | translate }}\"\r\n    [formControlName]=\"controlDir.name\"\r\n    [noLabel]=\"noLabel\"\r\n    [sideLabel]=\"sideLabel\"\r\n    \r\n    [placeHolderFromDate]=\"placeholderToTranslate\"\r\n    [placeHolderToDate]=\"placeholderToTranslate\"\r\n    [openOnClick]=\"openOnClick\"\r\n    [editable]=\"editable\"\r\n  >\r\n  </sof-date-range-picker-control>\r\n</ng-container>", components: [{ type: i1.DateRangePickerMaterialControlComponent, selector: "sof-date-range-picker-control" }], directives: [{ type: i2.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i2.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i2.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i2.FormControlName, selector: "[formControlName]", inputs: ["formControlName", "disabled", "ngModel"], outputs: ["ngModelChange"] }], pipes: { "translate": i3.TranslatePipe } });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nDateRangePickerControlComponent, decorators: [{
+            type: Component,
+            args: [{ selector: 'app-i18n-date-range-picker-control', template: "<ng-container [formGroup]=\"getFbGroup()\">\r\n  <!--  TODO [placeHolderFromDate]=\"placeholderToTranslate\" \r\n    No paso por pipe porque no se muestra el placeholder del input 1 hasta que se hace click \r\n  -->\r\n  <sof-date-range-picker-control\r\n    label=\"{{labelToTranslate | translate }}\"\r\n    [formControlName]=\"controlDir.name\"\r\n    [noLabel]=\"noLabel\"\r\n    [sideLabel]=\"sideLabel\"\r\n    \r\n    [placeHolderFromDate]=\"placeholderToTranslate\"\r\n    [placeHolderToDate]=\"placeholderToTranslate\"\r\n    [openOnClick]=\"openOnClick\"\r\n    [editable]=\"editable\"\r\n  >\r\n  </sof-date-range-picker-control>\r\n</ng-container>" }]
+        }], propDecorators: { control: [{
+                type: ViewChild,
+                args: [DateRangePickerMaterialControlComponent]
+            }], placeholderToTranslate: [{
+                type: Input
+            }], openOnClick: [{
+                type: Input
+            }], editable: [{
+                type: Input
+            }] } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaTE4bi1kYXRlLXBpY2tlci1jb250cm9sLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL2kxOG4tY29udHJvbHMvc3JjL2xpYi9pMThuLXdyYXBwZXItY29udHJvbHMvaTE4bi1kYXRlLXJhbmdlLXBpY2tlci1jb250cm9sL2kxOG4tZGF0ZS1waWNrZXItY29udHJvbC5jb21wb25lbnQudHMiLCIuLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9pMThuLWNvbnRyb2xzL3NyYy9saWIvaTE4bi13cmFwcGVyLWNvbnRyb2xzL2kxOG4tZGF0ZS1yYW5nZS1waWNrZXItY29udHJvbC9pMThuLWRhdGUtcmFuZ2UtcGlja2VyLWNvbnRyb2wuY29tcG9uZW50Lmh0bWwiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFpQixTQUFTLEVBQUUsS0FBSyxFQUF5QixTQUFTLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDbEcsT0FBTyxFQUFFLHVDQUF1QyxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFDMUUsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLDBCQUEwQixDQUFDOzs7OztBQU1wRCxNQUFNLE9BQU8sbUNBQW9DLFNBQVEsUUFBUTtJQUpqRTs7UUFTb0IsMkJBQXNCLEdBQUcsWUFBWSxDQUFBO1FBRXZEOztXQUVHO1FBQ00sZ0JBQVcsR0FBRyxLQUFLLENBQUE7UUFFNUI7O1dBRUc7UUFDTSxhQUFRLEdBQUcsS0FBSyxDQUFBO0tBUzFCO0lBTkMsZUFBZTtRQUNiLElBQUksQ0FBQyxPQUFPLENBQUMsWUFBWSxDQUFDLGdCQUFnQixHQUFHLENBQUMsS0FBYSxFQUFFLEVBQUU7WUFDN0QsT0FBTyxJQUFJLENBQUMsYUFBYSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUM3QyxDQUFDLENBQUM7SUFDSixDQUFDOztnSUF0QlUsbUNBQW1DO29IQUFuQyxtQ0FBbUMsbU9BRW5DLHVDQUF1Qyx1RUNWcEQscXBCQWdCZTsyRkRSRixtQ0FBbUM7a0JBSi9DLFNBQVM7K0JBQ0Usb0NBQW9DOzhCQU05QyxPQUFPO3NCQUROLFNBQVM7dUJBQUMsdUNBQXVDO2dCQUdoQyxzQkFBc0I7c0JBQXZDLEtBQUs7Z0JBS0csV0FBVztzQkFBbkIsS0FBSztnQkFLRyxRQUFRO3NCQUFoQixLQUFLIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQWZ0ZXJWaWV3SW5pdCwgQ29tcG9uZW50LCBJbnB1dCwgT25Jbml0LCBTaW1wbGVDaGFuZ2VzLCBWaWV3Q2hpbGQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuaW1wb3J0IHsgRGF0ZVJhbmdlUGlja2VyTWF0ZXJpYWxDb250cm9sQ29tcG9uZW50IH0gZnJvbSAnc29mLW5nLWNvbnRyb2xzJztcclxuaW1wb3J0IHsgSTE4bkJhc2UgfSBmcm9tICcuLi8uLi9zaGFyZWQvbW9kZWxzL2Jhc2UnO1xyXG5cclxuQENvbXBvbmVudCh7XHJcbiAgc2VsZWN0b3I6ICdhcHAtaTE4bi1kYXRlLXJhbmdlLXBpY2tlci1jb250cm9sJyxcclxuICB0ZW1wbGF0ZVVybDogJy4vaTE4bi1kYXRlLXJhbmdlLXBpY2tlci1jb250cm9sLmNvbXBvbmVudC5odG1sJyxcclxufSlcclxuZXhwb3J0IGNsYXNzIEkxOG5EYXRlUmFuZ2VQaWNrZXJDb250cm9sQ29tcG9uZW50IGV4dGVuZHMgSTE4bkJhc2UgaW1wbGVtZW50cyBBZnRlclZpZXdJbml0IHtcclxuXHJcbiAgQFZpZXdDaGlsZChEYXRlUmFuZ2VQaWNrZXJNYXRlcmlhbENvbnRyb2xDb21wb25lbnQpXHJcbiAgY29udHJvbCE6IERhdGVSYW5nZVBpY2tlck1hdGVyaWFsQ29udHJvbENvbXBvbmVudDtcclxuXHJcbiAgQElucHV0KCkgb3ZlcnJpZGUgcGxhY2Vob2xkZXJUb1RyYW5zbGF0ZSA9ICdkZC9NTS95eXl5J1xyXG5cclxuICAvKipcclxuICAgKiBFbiBjYXNvIGRlIHRydWUsIHNlIHZhIGEgbW9zdHJhciBlbCBjYWxlbmRhcmlvIGFsIGhhY2VyIGNsaWNrIGVuIGN1YWxxdWllciBwYXJ0ZSBkZWwgaW5wdXRcclxuICAgKi9cclxuICBASW5wdXQoKSBvcGVuT25DbGljayA9IGZhbHNlXHJcblxyXG4gIC8qKlxyXG4gICAqIEVuIGNhc28gZGUgdHJ1ZSBzZSB2YSBhIHBlcm1pdGlyIGVkaXRhciBsYXMgZmVjaGFzLCBjYXNvIGNvbnRyYXJpbyBlc3RhcmFuIHJlYWRvbmx5IHkgc29sbyBzZSBwb2RyYSBlZGl0YXIgZGVzZGUgZWwgY2FsZW5kYXJpb1xyXG4gICAqL1xyXG4gIEBJbnB1dCgpIGVkaXRhYmxlID0gZmFsc2VcclxuXHJcblxyXG4gIG5nQWZ0ZXJWaWV3SW5pdCgpOiB2b2lkIHtcclxuICAgIHRoaXMuY29udHJvbC5lcnJvckNvbnRyb2wudHJhbnNsYXRlRnVuY2lvbiA9IChwYXJhbTogc3RyaW5nKSA9PiB7XHJcbiAgICAgIHJldHVybiB0aGlzLnBpcGVUcmFuc2xhdGUudHJhbnNmb3JtKHBhcmFtKTtcclxuICAgIH07XHJcbiAgfVxyXG5cclxufVxyXG4iLCI8bmctY29udGFpbmVyIFtmb3JtR3JvdXBdPVwiZ2V0RmJHcm91cCgpXCI+XHJcbiAgPCEtLSAgVE9ETyBbcGxhY2VIb2xkZXJGcm9tRGF0ZV09XCJwbGFjZWhvbGRlclRvVHJhbnNsYXRlXCIgXHJcbiAgICBObyBwYXNvIHBvciBwaXBlIHBvcnF1ZSBubyBzZSBtdWVzdHJhIGVsIHBsYWNlaG9sZGVyIGRlbCBpbnB1dCAxIGhhc3RhIHF1ZSBzZSBoYWNlIGNsaWNrIFxyXG4gIC0tPlxyXG4gIDxzb2YtZGF0ZS1yYW5nZS1waWNrZXItY29udHJvbFxyXG4gICAgbGFiZWw9XCJ7e2xhYmVsVG9UcmFuc2xhdGUgfCB0cmFuc2xhdGUgfX1cIlxyXG4gICAgW2Zvcm1Db250cm9sTmFtZV09XCJjb250cm9sRGlyLm5hbWVcIlxyXG4gICAgW25vTGFiZWxdPVwibm9MYWJlbFwiXHJcbiAgICBbc2lkZUxhYmVsXT1cInNpZGVMYWJlbFwiXHJcbiAgICBcclxuICAgIFtwbGFjZUhvbGRlckZyb21EYXRlXT1cInBsYWNlaG9sZGVyVG9UcmFuc2xhdGVcIlxyXG4gICAgW3BsYWNlSG9sZGVyVG9EYXRlXT1cInBsYWNlaG9sZGVyVG9UcmFuc2xhdGVcIlxyXG4gICAgW29wZW5PbkNsaWNrXT1cIm9wZW5PbkNsaWNrXCJcclxuICAgIFtlZGl0YWJsZV09XCJlZGl0YWJsZVwiXHJcbiAgPlxyXG4gIDwvc29mLWRhdGUtcmFuZ2UtcGlja2VyLWNvbnRyb2w+XHJcbjwvbmctY29udGFpbmVyPiJdfQ==

@@ -63,6 +63,15 @@ export interface i18nDynamicFormConfig {
      * Key a los elementos de la lista a traducir (i89n files)
      */
     listKey?: string;
+    /**
+   * Configuracion para el date range picker
+   * Editable: Inputs editables, readonly en caso de false
+   * OpenOnClick: Si es true-> Toggle del calendario al hacer click en el input
+   */
+    dateRangePickerConfig?: {
+        editable: boolean;
+        openOnClick: boolean;
+    };
     validations: ValidationForm[];
     /**
      * Dependiendo del valor se va mostrar o esconder el campo
