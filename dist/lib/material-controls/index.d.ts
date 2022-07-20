@@ -16,3 +16,4 @@ export * from './card/card-component';
 export * from './search-box-control/search-box-control-component';
 export * from './dense-text-control/dense-text-control-component';
 export * from './doc-control/doc-control.component';
+export * from './checkbox-group-control/checkbox-group-control-component';

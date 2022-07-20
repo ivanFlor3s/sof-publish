@@ -43,6 +43,14 @@ export interface FieldConfig {
           * ```
           */
         multiple?: boolean;
+        /**
+         * Indica si se debe ocultar el label/titulo
+         */
+        noLabel?: boolean;
+        /**
+         * Indica si el label/titulo se posiciona a la izquierda en vez de arriba
+         */
+        sideLabel?: boolean;
     };
     /**
      * Reperesenta el valor por defecto que va a tener el campo
