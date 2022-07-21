@@ -1,6 +1,6 @@
 import { OnInit, ChangeDetectorRef, SimpleChanges, EventEmitter } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, ColGroupDef, GetRowIdFunc, GridApi } from 'ag-grid-community';
+import { ColDef, ColGroupDef, GetRowIdFunc, GridApi, RowNode } from 'ag-grid-community';
 import { OnChanges } from '@angular/core';
 import * as i0 from "@angular/core";
 export declare class GridControlComponent implements OnInit, OnChanges {
@@ -29,6 +29,13 @@ export declare class GridControlComponent implements OnInit, OnChanges {
     gridChecboxesToSelection: boolean;
     rerender: boolean;
     rowId: string;
+    /**
+     * @summary funcion que devuelve si muestra u oculta el checkbox de seleccion la cada fila
+     * @param rowNode la fila de la grilla. rowNode.data es el item de la fila del array que se le pasa a la grilla
+     * @example [isRoqSelectableFn]="selectableFn" //Si es necesario '...="selectableFn.bind(this)"'
+     * @example selectableFn(rowNode: RowNode): boolean { return rowNode.data?.convId == 'J10'; }
+     */
+    isRowSelectableFn: (rowNode: RowNode) => boolean;
     constructor(_cdRef: ChangeDetectorRef);
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
@@ -65,5 +72,5 @@ export declare class GridControlComponent implements OnInit, OnChanges {
     getRowId: GetRowIdFunc;
     sizeChanged(size: number): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<GridControlComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GridControlComponent, "sof-grid-control", never, { "gridRowOptions": "gridRowOptions"; "gridRowData": "gridRowData"; "gridColDefsRaw": "gridColDefsRaw"; "gridPaginationPageSize": "gridPaginationPageSize"; "gridPagination": "gridPagination"; "gridRowSelection": "gridRowSelection"; "localeText": "localeText"; "gridAnimateRows": "gridAnimateRows"; "gridPageSizeEditable": "gridPageSizeEditable"; "gridPageSizeText": "gridPageSizeText"; "gridChecboxesToSelection": "gridChecboxesToSelection"; "rowId": "rowId"; }, { "gridReady": "gridReady"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GridControlComponent, "sof-grid-control", never, { "gridRowOptions": "gridRowOptions"; "gridRowData": "gridRowData"; "gridColDefsRaw": "gridColDefsRaw"; "gridPaginationPageSize": "gridPaginationPageSize"; "gridPagination": "gridPagination"; "gridRowSelection": "gridRowSelection"; "localeText": "localeText"; "gridAnimateRows": "gridAnimateRows"; "gridPageSizeEditable": "gridPageSizeEditable"; "gridPageSizeText": "gridPageSizeText"; "gridChecboxesToSelection": "gridChecboxesToSelection"; "rowId": "rowId"; "isRowSelectableFn": "isRowSelectableFn"; }, { "gridReady": "gridReady"; }, never, never>;
 }
