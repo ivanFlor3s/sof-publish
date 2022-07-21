@@ -35,7 +35,7 @@ export declare class GridControlComponent implements OnInit, OnChanges {
      * @example [isRoqSelectableFn]="selectableFn" //Si es necesario '...="selectableFn.bind(this)"'
      * @example selectableFn(rowNode: RowNode): boolean { return rowNode.data?.convId == 'J10'; }
      */
-    isRowSelectableFn: (rowNode: RowNode) => boolean;
+    isRowSelectableFn?: (rowNode: RowNode) => boolean;
     constructor(_cdRef: ChangeDetectorRef);
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
