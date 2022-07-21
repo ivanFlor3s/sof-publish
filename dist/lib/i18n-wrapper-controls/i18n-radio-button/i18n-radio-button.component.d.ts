@@ -19,6 +19,6 @@ export declare class I18nRadioButtonComponent extends RadioButtonMaterialControl
     translateOptions(): void;
     ngAfterViewInit(): void;
     getFbGroup(): FormGroup;
-    static ɵfac: i0.ɵɵFactoryDeclaration<I18nRadioButtonComponent, [{ self: true; }, null, null]>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<I18nRadioButtonComponent, [{ optional: true; self: true; }, null, null]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<I18nRadioButtonComponent, "app-i18n-radio-button", never, { "labelToTranslate": "labelToTranslate"; "listToTranslate": "listToTranslate"; }, {}, never, never>;
 }
