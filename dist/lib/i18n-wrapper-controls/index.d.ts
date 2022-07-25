@@ -19,3 +19,4 @@ export * from './i18n-timer-picker-control/i18n-timer-picker-control.component';
 export * from './i18n-wrapper.module';
 export * from './i18n-checkbox-group-control/i18n-checkbox-group-control.component';
 export * from './i18n-date-range-picker-control/i18n-date-picker-control.component';
+export * from './i18n-prefix-control/i18n-prefix-control.component';

@@ -1,5 +1,5 @@
-import { ActionForm, Emptyfield, FieldControlType, OptionsFormConfig, ValidationForm } from "sof-ng-controls";
-export declare type i18nFormFieldsConfig = (i18nDynamicFormConfig | Emptyfield);
+import { ActionForm, Emptyfield, FieldControlType, OptionsFormConfig, PrefixConfig, ValidationForm } from 'sof-ng-controls';
+export declare type i18nFormFieldsConfig = i18nDynamicFormConfig | Emptyfield;
 export interface i18nDynamicFormConfig {
     type: FieldControlType;
     id: number;
@@ -8,13 +8,13 @@ export interface i18nDynamicFormConfig {
      */
     key: string;
     /**
-     * Configuracion visual del campo
-     * templateOptions: {
-          label: 'Nombre',
-          placeholder: 'Ingrese nombre',
-          customClass:'formControl'
-        }
-     */
+       * Configuracion visual del campo
+       * templateOptions: {
+            label: 'Nombre',
+            placeholder: 'Ingrese nombre',
+            customClass:'formControl'
+          }
+       */
     templateOptions: {
         label: string;
         placeholder?: string;
@@ -29,16 +29,16 @@ export interface i18nDynamicFormConfig {
          */
         resizeable?: boolean;
         /**
-         * Propiedad para saber si un campo fileUpload puede tener mas de un archivo
-         * @example
-         * ```ts
-         * templateOptions: {
-                  label: 'Estudios',
-                  placeholder:'Ingrese aqui cualquier otra dato relevante.',
-                  multiple: true
-              }
-         * ```
-         */
+           * Propiedad para saber si un campo fileUpload puede tener mas de un archivo
+           * @example
+           * ```ts
+           * templateOptions: {
+                    label: 'Estudios',
+                    placeholder:'Ingrese aqui cualquier otra dato relevante.',
+                    multiple: true
+                }
+           * ```
+           */
         multiple?: boolean;
         /**
          * Indica si se debe ocultar el label/titulo
@@ -64,14 +64,15 @@ export interface i18nDynamicFormConfig {
      */
     listKey?: string;
     /**
-   * Configuracion para el date range picker
-   * Editable: Inputs editables, readonly en caso de false
-   * OpenOnClick: Si es true-> Toggle del calendario al hacer click en el input
-   */
+     * Configuracion para el date range picker
+     * Editable: Inputs editables, readonly en caso de false
+     * OpenOnClick: Si es true-> Toggle del calendario al hacer click en el input
+     */
     dateRangePickerConfig?: {
         editable: boolean;
         openOnClick: boolean;
     };
+    prefixConfig?: PrefixConfig;
     validations: ValidationForm[];
     /**
      * Dependiendo del valor se va mostrar o esconder el campo

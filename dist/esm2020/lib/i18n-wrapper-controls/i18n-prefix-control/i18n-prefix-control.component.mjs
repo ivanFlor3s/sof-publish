@@ -1,0 +1,32 @@
+import { Component, ViewChild, Input } from '@angular/core';
+import { PrefixControlMaterialComponent } from 'sof-ng-controls';
+import { I18nBase } from '../../shared/models/base';
+import * as i0 from "@angular/core";
+import * as i1 from "sof-ng-controls";
+import * as i2 from "@angular/forms";
+import * as i3 from "@ngx-translate/core";
+export class I18nPrefixControlComponent extends I18nBase {
+    constructor() {
+        super(...arguments);
+        this.inputType = 'number';
+    }
+    ngAfterViewInit() {
+        this.control.errorControl.translateFuncion = (param) => {
+            return this.pipeTranslate.transform(param);
+        };
+    }
+}
+I18nPrefixControlComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nPrefixControlComponent, deps: null, target: i0.ɵɵFactoryTarget.Component });
+I18nPrefixControlComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nPrefixControlComponent, selector: "app-i18n-prefix-control", inputs: { inputType: "inputType", prefix: "prefix" }, viewQueries: [{ propertyName: "control", first: true, predicate: PrefixControlMaterialComponent, descendants: true }], usesInheritance: true, ngImport: i0, template: "<ng-container [formGroup]=\"getFbGroup()\">\r\n  <sof-prefix-control\r\n    label=\"{{labelToTranslate | translate }}\"\r\n\r\n    [prefix]=\"prefix\"\r\n    [inputType]=\"inputType\"\r\n\r\n    placeholder=\"{{placeholderToTranslate | translate}}\"\r\n    [formControlName]=\"controlDir.name\"\r\n    [maxLength]=\"maxLength\"\r\n    [noLabel]=\"noLabel\"\r\n    [sideLabel]=\"sideLabel\"\r\n  >\r\n  </sof-prefix-control>\r\n</ng-container>\r\n", components: [{ type: i1.PrefixControlMaterialComponent, selector: "sof-prefix-control", inputs: ["inputType"] }], directives: [{ type: i2.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i2.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i2.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i2.FormControlName, selector: "[formControlName]", inputs: ["formControlName", "disabled", "ngModel"], outputs: ["ngModelChange"] }], pipes: { "translate": i3.TranslatePipe } });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nPrefixControlComponent, decorators: [{
+            type: Component,
+            args: [{ selector: 'app-i18n-prefix-control', template: "<ng-container [formGroup]=\"getFbGroup()\">\r\n  <sof-prefix-control\r\n    label=\"{{labelToTranslate | translate }}\"\r\n\r\n    [prefix]=\"prefix\"\r\n    [inputType]=\"inputType\"\r\n\r\n    placeholder=\"{{placeholderToTranslate | translate}}\"\r\n    [formControlName]=\"controlDir.name\"\r\n    [maxLength]=\"maxLength\"\r\n    [noLabel]=\"noLabel\"\r\n    [sideLabel]=\"sideLabel\"\r\n  >\r\n  </sof-prefix-control>\r\n</ng-container>\r\n" }]
+        }], propDecorators: { inputType: [{
+                type: Input
+            }], prefix: [{
+                type: Input
+            }], control: [{
+                type: ViewChild,
+                args: [PrefixControlMaterialComponent]
+            }] } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaTE4bi1wcmVmaXgtY29udHJvbC5jb21wb25lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9pMThuLWNvbnRyb2xzL3NyYy9saWIvaTE4bi13cmFwcGVyLWNvbnRyb2xzL2kxOG4tcHJlZml4LWNvbnRyb2wvaTE4bi1wcmVmaXgtY29udHJvbC5jb21wb25lbnQudHMiLCIuLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9pMThuLWNvbnRyb2xzL3NyYy9saWIvaTE4bi13cmFwcGVyLWNvbnRyb2xzL2kxOG4tcHJlZml4LWNvbnRyb2wvaTE4bi1wcmVmaXgtY29udHJvbC5jb21wb25lbnQuaHRtbCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFpQixTQUFTLEVBQUUsS0FBSyxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQzNFLE9BQU8sRUFBRSw4QkFBOEIsRUFBRSxNQUFNLGlCQUFpQixDQUFDO0FBQ2pFLE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSwwQkFBMEIsQ0FBQzs7Ozs7QUFNcEQsTUFBTSxPQUFPLDBCQUEyQixTQUFRLFFBQVE7SUFKeEQ7O1FBTVcsY0FBUyxHQUFzQixRQUFRLENBQUE7S0FXakQ7SUFMQyxlQUFlO1FBQ2IsSUFBSSxDQUFDLE9BQU8sQ0FBQyxZQUFZLENBQUMsZ0JBQWdCLEdBQUcsQ0FBQyxLQUFhLEVBQUUsRUFBRTtZQUM3RCxPQUFPLElBQUksQ0FBQyxhQUFhLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQzdDLENBQUMsQ0FBQztJQUNKLENBQUM7O3VIQVpVLDBCQUEwQjsyR0FBMUIsMEJBQTBCLDhKQUsxQiw4QkFBOEIsdUVDYjNDLGdjQWVBOzJGRFBhLDBCQUEwQjtrQkFKdEMsU0FBUzsrQkFDRSx5QkFBeUI7OEJBSzFCLFNBQVM7c0JBQWpCLEtBQUs7Z0JBQ0csTUFBTTtzQkFBZCxLQUFLO2dCQUdOLE9BQU87c0JBRE4sU0FBUzt1QkFBQyw4QkFBOEIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQsIEFmdGVyVmlld0luaXQsIFZpZXdDaGlsZCwgSW5wdXQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuaW1wb3J0IHsgUHJlZml4Q29udHJvbE1hdGVyaWFsQ29tcG9uZW50IH0gZnJvbSAnc29mLW5nLWNvbnRyb2xzJztcclxuaW1wb3J0IHsgSTE4bkJhc2UgfSBmcm9tICcuLi8uLi9zaGFyZWQvbW9kZWxzL2Jhc2UnO1xyXG5cclxuQENvbXBvbmVudCh7XHJcbiAgc2VsZWN0b3I6ICdhcHAtaTE4bi1wcmVmaXgtY29udHJvbCcsXHJcbiAgdGVtcGxhdGVVcmw6ICcuL2kxOG4tcHJlZml4LWNvbnRyb2wuY29tcG9uZW50Lmh0bWwnXHJcbn0pXHJcbmV4cG9ydCBjbGFzcyBJMThuUHJlZml4Q29udHJvbENvbXBvbmVudCBleHRlbmRzIEkxOG5CYXNlIGltcGxlbWVudHMgQWZ0ZXJWaWV3SW5pdCB7XHJcblxyXG4gIEBJbnB1dCgpIGlucHV0VHlwZTogJ251bWJlcicgfCAndGV4dCcgPSAnbnVtYmVyJ1xyXG4gIEBJbnB1dCgpIHByZWZpeDogc3RyaW5nO1xyXG5cclxuICBAVmlld0NoaWxkKFByZWZpeENvbnRyb2xNYXRlcmlhbENvbXBvbmVudClcclxuICBjb250cm9sOiBQcmVmaXhDb250cm9sTWF0ZXJpYWxDb21wb25lbnQ7XHJcblxyXG4gIG5nQWZ0ZXJWaWV3SW5pdCgpOiB2b2lkIHtcclxuICAgIHRoaXMuY29udHJvbC5lcnJvckNvbnRyb2wudHJhbnNsYXRlRnVuY2lvbiA9IChwYXJhbTogc3RyaW5nKSA9PiB7XHJcbiAgICAgIHJldHVybiB0aGlzLnBpcGVUcmFuc2xhdGUudHJhbnNmb3JtKHBhcmFtKTtcclxuICAgIH07XHJcbiAgfVxyXG59XHJcbiIsIjxuZy1jb250YWluZXIgW2Zvcm1Hcm91cF09XCJnZXRGYkdyb3VwKClcIj5cclxuICA8c29mLXByZWZpeC1jb250cm9sXHJcbiAgICBsYWJlbD1cInt7bGFiZWxUb1RyYW5zbGF0ZSB8IHRyYW5zbGF0ZSB9fVwiXHJcblxyXG4gICAgW3ByZWZpeF09XCJwcmVmaXhcIlxyXG4gICAgW2lucHV0VHlwZV09XCJpbnB1dFR5cGVcIlxyXG5cclxuICAgIHBsYWNlaG9sZGVyPVwie3twbGFjZWhvbGRlclRvVHJhbnNsYXRlIHwgdHJhbnNsYXRlfX1cIlxyXG4gICAgW2Zvcm1Db250cm9sTmFtZV09XCJjb250cm9sRGlyLm5hbWVcIlxyXG4gICAgW21heExlbmd0aF09XCJtYXhMZW5ndGhcIlxyXG4gICAgW25vTGFiZWxdPVwibm9MYWJlbFwiXHJcbiAgICBbc2lkZUxhYmVsXT1cInNpZGVMYWJlbFwiXHJcbiAgPlxyXG4gIDwvc29mLXByZWZpeC1jb250cm9sPlxyXG48L25nLWNvbnRhaW5lcj5cclxuIl19
