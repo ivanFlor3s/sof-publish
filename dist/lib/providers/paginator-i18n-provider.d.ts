@@ -8,7 +8,7 @@ export declare class MyCustomPaginatorIntl implements MatPaginatorIntl {
     constructor(translateService: TranslateService);
     onInit(): Promise<void>;
     firstPageLabel: string;
-    itemsPerPageLabel: '';
+    itemsPerPageLabel: string;
     lastPageLabel: string;
     ItemsOfLabel: string;
     nextPageLabel: string;

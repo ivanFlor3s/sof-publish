@@ -1082,20 +1082,21 @@ class MyCustomPaginatorIntl {
         this.translateService = translateService;
         this.changes = new Subject();
         this.firstPageLabel = ``;
+        this.itemsPerPageLabel = '';
         this.lastPageLabel = ``;
         this.ItemsOfLabel = '';
-        // You can set labels to an arbitrary string too, or dynamically compute
-        // it through other third-party internationalization libraries.
         this.nextPageLabel = '';
         this.previousPageLabel = '';
         this.onInit();
     }
     async onInit() {
-        this.translateService.onLangChange.subscribe(async (_) => {
+        const loadLabels = async () => {
             const labels = await firstValueFrom(this.translateService.get('GRID'));
             this.itemsPerPageLabel = labels['PAGE-SIZETEXT'];
             this.ItemsOfLabel = labels['of'];
-        });
+        };
+        await loadLabels();
+        this.translateService.onLangChange.subscribe(async (_) => await loadLabels());
     }
     getRangeLabel(page, pageSize, length) {
         if (length === 0) {
