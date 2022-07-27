@@ -1,4 +1,5 @@
 import { EventEmitter, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { ColDef, GridApi } from 'ag-grid-community';
 import { GridControlComponent } from 'sof-ng-controls';
@@ -8,7 +9,10 @@ export declare class I18nGridControlComponent implements OnInit {
     _srvTranslatePipe: TranslateService;
     private listenerToLangChange$;
     onGridApi: EventEmitter<GridApi>;
+    pageChangeEvent: EventEmitter<PageEvent>;
     i18nRowId: any;
+    onMemorySearch: boolean;
+    totalItems: number;
     gridControl: GridControlComponent;
     /**
      *
@@ -81,5 +85,5 @@ export declare class I18nGridControlComponent implements OnInit {
     transformI18nColumnRaws(): Promise<void>;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<I18nGridControlComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<I18nGridControlComponent, "app-i18n-grid-control", never, { "i18nRowId": "i18nRowId"; "i18nGridRowData": "i18nGridRowData"; "i18nGridColDefsRaw": "i18nGridColDefsRaw"; "i18nGridPaginationPageSize": "i18nGridPaginationPageSize"; "i18nGridPagination": "i18nGridPagination"; "i18nGridRowSelection": "i18nGridRowSelection"; "i18nGridAnimateRows": "i18nGridAnimateRows"; "i18nGridPageSizeEditable": "i18nGridPageSizeEditable"; "i18nGridPageSizeText": "i18nGridPageSizeText"; "i18nGridCheckboxesToSelection": "i18nGridCheckboxesToSelection"; "isRowSelectableFn": "isRowSelectableFn"; }, { "onGridApi": "onGridApi"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<I18nGridControlComponent, "app-i18n-grid-control", never, { "i18nRowId": "i18nRowId"; "onMemorySearch": "onMemorySearch"; "totalItems": "totalItems"; "i18nGridRowData": "i18nGridRowData"; "i18nGridColDefsRaw": "i18nGridColDefsRaw"; "i18nGridPaginationPageSize": "i18nGridPaginationPageSize"; "i18nGridPagination": "i18nGridPagination"; "i18nGridRowSelection": "i18nGridRowSelection"; "i18nGridAnimateRows": "i18nGridAnimateRows"; "i18nGridPageSizeEditable": "i18nGridPageSizeEditable"; "i18nGridPageSizeText": "i18nGridPageSizeText"; "i18nGridCheckboxesToSelection": "i18nGridCheckboxesToSelection"; "isRowSelectableFn": "isRowSelectableFn"; }, { "onGridApi": "onGridApi"; "pageChangeEvent": "pageChangeEvent"; }, never, never>;
 }

@@ -4,3 +4,4 @@ export * from './lib/components/lang/lang.component';
 export * from './lib/i18n-wrapper-grid/i18n-grid-control/i18n-grid-control.component';
 export * from './lib/i18n-wrapper-grid/i18n-grid-control/components';
 export * from './lib/i18n-wrapper-grid/i18n-grid-control/i18n-grid-control.module';
+export * from './lib/providers/paginator-i18n-provider';

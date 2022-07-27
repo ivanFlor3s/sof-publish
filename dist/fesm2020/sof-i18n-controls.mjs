@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { Component, Self, Input, ViewChild, EventEmitter, Output, Optional, NgModule, Inject } from '@angular/core';
+import { Component, Self, Input, ViewChild, EventEmitter, Output, Optional, NgModule, Inject, Injectable } from '@angular/core';
 import * as i1 from 'sof-ng-controls';
 import { BaseFormFieldComponent, AutocompleteMaterialControlComponent, DatePickerMaterialControlComponent, DenseTextMaterialControlComponent, NumberMaterialControlComponent, PasswordMaterialControlComponent, PhoneMaterialControlComponent, RadioButtonMaterialControlComponent, SearchBoxMaterialControlComponent, SelectMaterialControlComponent, TextMaterialControlComponent, TextAreaMaterialControlComponent, ValidationTypes, FileUploadMaterialControlComponent, TimePickerMaterialControlComponent, PrefixControlMaterialComponent, CheckboxGroupMaterialControlComponent, DateRangePickerMaterialControlComponent, FormConfigTypes, FormularioService, DocControlComponent, MaterialControlsModule, BadgeComponent, RowOptionsComponent, GridControlComponent, GridControlModule } from 'sof-ng-controls';
 import * as i2 from '@angular/forms';
@@ -23,7 +23,7 @@ import * as i3$1 from '@angular/material/menu';
 import { MatMenuModule } from '@angular/material/menu';
 import * as i4 from '@angular/material/tooltip';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Subject, firstValueFrom } from 'rxjs';
 import { MatInputModule } from '@angular/material/input';
 
 class I18nBase extends BaseFormFieldComponent {
@@ -77,13 +77,13 @@ class I18nOptions extends I18nBase {
             this.valuePath == 'value') {
             if (typeof (this.listTmp) === 'string') {
                 this._srvTranslatePipe.get(this.listTmp).subscribe(item => {
-                    const tmp = Object.keys(item).map(key => item[key]);
-                    for (const item of tmp) {
-                        this.listFinal.push({
-                            option: item,
-                            value: item
-                        });
-                    }
+                    Object.keys(item).forEach(key => {
+                        if (item.hasOwnProperty(key))
+                            this.listFinal.push({
+                                option: item[key],
+                                value: key
+                            });
+                    });
                 });
             }
             else if (this.listTmp instanceof Array) {
@@ -898,6 +898,8 @@ class I18nGridControlComponent {
         this.pipeTranslate = pipeTranslate;
         this._srvTranslatePipe = _srvTranslatePipe;
         this.onGridApi = new EventEmitter();
+        this.pageChangeEvent = new EventEmitter();
+        this.onMemorySearch = true;
         this.i18nGridPaginationPageSize = 10;
         this.i18nGridPagination = true;
         /**
@@ -973,13 +975,19 @@ class I18nGridControlComponent {
     }
 }
 I18nGridControlComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nGridControlComponent, deps: [{ token: i2$1.TranslatePipe }, { token: i2$1.TranslateService }], target: i0.ɵɵFactoryTarget.Component });
-I18nGridControlComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nGridControlComponent, selector: "app-i18n-grid-control", inputs: { i18nRowId: "i18nRowId", i18nGridRowData: "i18nGridRowData", i18nGridColDefsRaw: "i18nGridColDefsRaw", i18nGridPaginationPageSize: "i18nGridPaginationPageSize", i18nGridPagination: "i18nGridPagination", i18nGridRowSelection: "i18nGridRowSelection", i18nGridAnimateRows: "i18nGridAnimateRows", i18nGridPageSizeEditable: "i18nGridPageSizeEditable", i18nGridPageSizeText: "i18nGridPageSizeText", i18nGridCheckboxesToSelection: "i18nGridCheckboxesToSelection", isRowSelectableFn: "isRowSelectableFn" }, outputs: { onGridApi: "onGridApi" }, viewQueries: [{ propertyName: "gridControl", first: true, predicate: GridControlComponent, descendants: true }], ngImport: i0, template: "\r\n  <sof-grid-control\r\n    [gridRowData]=\"i18nGridRowData\"\r\n    [gridColDefsRaw]=\"[]\"\r\n    [gridPaginationPageSize]=\"i18nGridPaginationPageSize\"\r\n    [gridPagination]=\"i18nGridPagination\"\r\n    [gridRowSelection]=\"i18nGridRowSelection\"\r\n    [gridAnimateRows]=\"i18nGridAnimateRows\"\r\n    [gridPageSizeEditable]=\"i18nGridPageSizeEditable\"\r\n    [gridPageSizeText]=\"PageSizeText\"\r\n    [gridChecboxesToSelection]=\"i18nGridCheckboxesToSelection\"\r\n    (gridReady)=\"onGridApi.emit($event)\"\r\n    [rowId]=\"i18nRowId\"\r\n    [isRowSelectableFn]=\"isRowSelectableFn\"\r\n  >\r\n  \r\n  </sof-grid-control>\r\n", styles: [""], components: [{ type: i1.GridControlComponent, selector: "sof-grid-control", inputs: ["gridRowOptions", "gridRowData", "gridColDefsRaw", "gridPaginationPageSize", "gridPagination", "gridRowSelection", "localeText", "gridAnimateRows", "gridPageSizeEditable", "gridPageSizeText", "gridChecboxesToSelection", "rowId", "isRowSelectableFn"], outputs: ["gridReady"] }] });
+I18nGridControlComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: I18nGridControlComponent, selector: "app-i18n-grid-control", inputs: { i18nRowId: "i18nRowId", onMemorySearch: "onMemorySearch", totalItems: "totalItems", i18nGridRowData: "i18nGridRowData", i18nGridColDefsRaw: "i18nGridColDefsRaw", i18nGridPaginationPageSize: "i18nGridPaginationPageSize", i18nGridPagination: "i18nGridPagination", i18nGridRowSelection: "i18nGridRowSelection", i18nGridAnimateRows: "i18nGridAnimateRows", i18nGridPageSizeEditable: "i18nGridPageSizeEditable", i18nGridPageSizeText: "i18nGridPageSizeText", i18nGridCheckboxesToSelection: "i18nGridCheckboxesToSelection", isRowSelectableFn: "isRowSelectableFn" }, outputs: { onGridApi: "onGridApi", pageChangeEvent: "pageChangeEvent" }, viewQueries: [{ propertyName: "gridControl", first: true, predicate: GridControlComponent, descendants: true }], ngImport: i0, template: "\r\n  <sof-grid-control\r\n    [gridRowData]=\"i18nGridRowData\"\r\n    [gridColDefsRaw]=\"[]\"\r\n    [gridPaginationPageSize]=\"i18nGridPaginationPageSize\"\r\n    [gridPagination]=\"i18nGridPagination\"\r\n    [gridRowSelection]=\"i18nGridRowSelection\"\r\n    [gridAnimateRows]=\"i18nGridAnimateRows\"\r\n    [gridPageSizeEditable]=\"i18nGridPageSizeEditable\"\r\n    [gridPageSizeText]=\"PageSizeText\"\r\n    [gridChecboxesToSelection]=\"i18nGridCheckboxesToSelection\"\r\n    (gridReady)=\"onGridApi.emit($event)\"\r\n    [rowId]=\"i18nRowId\"\r\n    [isRowSelectableFn]=\"isRowSelectableFn\"\r\n    [onMemorySearch]=\"onMemorySearch\"\r\n    [totalItems]=\"totalItems\"\r\n    (pageChangeEvent)=\"pageChangeEvent.emit($event)\"\r\n  >\r\n  \r\n  </sof-grid-control>\r\n", styles: [""], components: [{ type: i1.GridControlComponent, selector: "sof-grid-control", inputs: ["totalItems", "onMemorySearch", "gridRowOptions", "gridRowData", "gridColDefsRaw", "gridPaginationPageSize", "gridPagination", "gridRowSelection", "localeText", "gridAnimateRows", "gridPageSizeEditable", "gridPageSizeText", "gridChecboxesToSelection", "rowId", "isRowSelectableFn"], outputs: ["gridReady", "pageChangeEvent"] }] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: I18nGridControlComponent, decorators: [{
             type: Component,
-            args: [{ selector: 'app-i18n-grid-control', template: "\r\n  <sof-grid-control\r\n    [gridRowData]=\"i18nGridRowData\"\r\n    [gridColDefsRaw]=\"[]\"\r\n    [gridPaginationPageSize]=\"i18nGridPaginationPageSize\"\r\n    [gridPagination]=\"i18nGridPagination\"\r\n    [gridRowSelection]=\"i18nGridRowSelection\"\r\n    [gridAnimateRows]=\"i18nGridAnimateRows\"\r\n    [gridPageSizeEditable]=\"i18nGridPageSizeEditable\"\r\n    [gridPageSizeText]=\"PageSizeText\"\r\n    [gridChecboxesToSelection]=\"i18nGridCheckboxesToSelection\"\r\n    (gridReady)=\"onGridApi.emit($event)\"\r\n    [rowId]=\"i18nRowId\"\r\n    [isRowSelectableFn]=\"isRowSelectableFn\"\r\n  >\r\n  \r\n  </sof-grid-control>\r\n", styles: [""] }]
+            args: [{ selector: 'app-i18n-grid-control', template: "\r\n  <sof-grid-control\r\n    [gridRowData]=\"i18nGridRowData\"\r\n    [gridColDefsRaw]=\"[]\"\r\n    [gridPaginationPageSize]=\"i18nGridPaginationPageSize\"\r\n    [gridPagination]=\"i18nGridPagination\"\r\n    [gridRowSelection]=\"i18nGridRowSelection\"\r\n    [gridAnimateRows]=\"i18nGridAnimateRows\"\r\n    [gridPageSizeEditable]=\"i18nGridPageSizeEditable\"\r\n    [gridPageSizeText]=\"PageSizeText\"\r\n    [gridChecboxesToSelection]=\"i18nGridCheckboxesToSelection\"\r\n    (gridReady)=\"onGridApi.emit($event)\"\r\n    [rowId]=\"i18nRowId\"\r\n    [isRowSelectableFn]=\"isRowSelectableFn\"\r\n    [onMemorySearch]=\"onMemorySearch\"\r\n    [totalItems]=\"totalItems\"\r\n    (pageChangeEvent)=\"pageChangeEvent.emit($event)\"\r\n  >\r\n  \r\n  </sof-grid-control>\r\n", styles: [""] }]
         }], ctorParameters: function () { return [{ type: i2$1.TranslatePipe }, { type: i2$1.TranslateService }]; }, propDecorators: { onGridApi: [{
                 type: Output
+            }], pageChangeEvent: [{
+                type: Output
             }], i18nRowId: [{
+                type: Input
+            }], onMemorySearch: [{
+                type: Input
+            }], totalItems: [{
                 type: Input
             }], gridControl: [{
                 type: ViewChild,
@@ -1069,6 +1077,41 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImpor
                 }]
         }] });
 
+class MyCustomPaginatorIntl {
+    constructor(translateService) {
+        this.translateService = translateService;
+        this.changes = new Subject();
+        this.firstPageLabel = ``;
+        this.lastPageLabel = ``;
+        this.ItemsOfLabel = '';
+        // You can set labels to an arbitrary string too, or dynamically compute
+        // it through other third-party internationalization libraries.
+        this.nextPageLabel = '';
+        this.previousPageLabel = '';
+        this.onInit();
+    }
+    async onInit() {
+        this.translateService.onLangChange.subscribe(async (_) => {
+            const labels = await firstValueFrom(this.translateService.get('GRID'));
+            this.itemsPerPageLabel = labels['PAGE-SIZETEXT'];
+            this.ItemsOfLabel = labels['of'];
+        });
+    }
+    getRangeLabel(page, pageSize, length) {
+        if (length === 0) {
+            return `0 - ${length} ${this.ItemsOfLabel} ${length}`;
+        }
+        const itemTo = (page + 1) * pageSize;
+        const itemFrom = ((page + 1) * pageSize) - pageSize + 1;
+        return `${itemFrom} - ${itemTo > length ? length : itemTo} ${this.ItemsOfLabel} ${length}`;
+    }
+}
+MyCustomPaginatorIntl.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: MyCustomPaginatorIntl, deps: [{ token: i2$1.TranslateService }], target: i0.ɵɵFactoryTarget.Injectable });
+MyCustomPaginatorIntl.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: MyCustomPaginatorIntl });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: MyCustomPaginatorIntl, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: i2$1.TranslateService }]; } });
+
 /*
  * Public API Surface of i18n-controls
  */
@@ -1077,5 +1120,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { I18GridControlModule, I18nAutocompleteComponent, I18nBadgeControlComponent, I18nCardComponent, I18nCheckboxControlComponent, I18nCheckboxGroupControlComponent, I18nControlsModule, I18nDatePickerControlComponent, I18nDateRangePickerControlComponent, I18nDenseTextControlComponent, I18nDocControlComponent, I18nDynamicFormComponent, I18nFileUploadControlComponent, I18nGridControlComponent, I18nNumberControlComponent, I18nPasswordControlComponent, I18nPhoneControlComponent, I18nPrefixControlComponent, I18nRadioButtonComponent, I18nRowOptionsComponent, I18nSearchBoxControlComponent, I18nSelectControlComponent, I18nTextAreaControlComponent, I18nTextControlComponent, I18nTimePickerControlComponent, I18nWrapperModule, LangComponent };
+export { I18GridControlModule, I18nAutocompleteComponent, I18nBadgeControlComponent, I18nCardComponent, I18nCheckboxControlComponent, I18nCheckboxGroupControlComponent, I18nControlsModule, I18nDatePickerControlComponent, I18nDateRangePickerControlComponent, I18nDenseTextControlComponent, I18nDocControlComponent, I18nDynamicFormComponent, I18nFileUploadControlComponent, I18nGridControlComponent, I18nNumberControlComponent, I18nPasswordControlComponent, I18nPhoneControlComponent, I18nPrefixControlComponent, I18nRadioButtonComponent, I18nRowOptionsComponent, I18nSearchBoxControlComponent, I18nSelectControlComponent, I18nTextAreaControlComponent, I18nTextControlComponent, I18nTimePickerControlComponent, I18nWrapperModule, LangComponent, MyCustomPaginatorIntl };
 //# sourceMappingURL=sof-i18n-controls.mjs.map
