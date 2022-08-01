@@ -19,3 +19,4 @@ export * from './doc-control/doc-control.component';
 export * from './checkbox-group-control/checkbox-group-control-component';
 export * from './date-range-picker-control/date-range-picker-control.component';
 export * from './prefix-control/prefix-control.component';
+export * from './interfaces';
