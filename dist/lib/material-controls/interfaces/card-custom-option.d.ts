@@ -21,4 +21,15 @@ export interface CardCustomOptions {
      * ```
      */
     fontTitleSize?: string;
+    /**
+     * Border radius de la card
+     * @example
+     * ```ts
+     * demoCustomCardOptions:CardCustomOptions = {
+        borderRadius:'15px'
+        ...
+     }
+     * ```
+     */
+    borderRadius?: string;
 }
