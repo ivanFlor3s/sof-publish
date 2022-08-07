@@ -48,6 +48,10 @@ export interface i18nDynamicFormConfig {
          * Indica si el label/titulo se posiciona a la izquierda en vez de arriba
          */
         sideLabel?: boolean;
+        /**
+         * Dependiendo del valor se va poner como readonly el campo, o disabled para cuando no lo soporte
+         */
+        readOnly?: boolean;
     };
     /**
      * Reperesenta el valor por defecto que va a tener el campo
