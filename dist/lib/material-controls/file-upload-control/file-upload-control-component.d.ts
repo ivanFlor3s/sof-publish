@@ -10,6 +10,7 @@ export declare class FileUploadMaterialControlComponent extends FileUploadContro
     errorControl: ErrorMaterialComponent;
     ngOnInit(): void;
     onInput(value: any): void;
+    redrawFields(value: any): void;
     getMaxSizeValueInValidation(validations?: ValidationForm[]): any;
     getFileInputFromValue(): FileInput;
     getFilesName(): string[];
