@@ -25,6 +25,8 @@ import * as i5 from '@angular/material/tooltip';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { lastValueFrom, Subject, firstValueFrom } from 'rxjs';
 import { MatInputModule } from '@angular/material/input';
+import * as i1$1 from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 class I18nBase extends BaseFormFieldComponent {
     constructor(controlDir, pipeTranslate, _srvTranslatePipe) {
@@ -1119,6 +1121,238 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImpor
             type: Injectable
         }], ctorParameters: function () { return [{ type: i2$1.TranslateService }]; } });
 
+/**
+ * SofAlert button config
+ */
+class ButtonConfig {
+    constructor(label) {
+        /**
+         * Material button type. Default: basic
+         */
+        this.type = 'basic';
+        this.labelKey = label;
+    }
+    get basic() {
+        this.type = "basic";
+        return this;
+    }
+    get raised() {
+        this.type = "raised";
+        return this;
+    }
+    get stroked() {
+        this.type = "stroked";
+        return this;
+    }
+    get flat() {
+        this.type = "flat";
+        return this;
+    }
+}
+
+/**
+ * SofAlert predefined buttons
+ *
+ * Agregar los botones que se vayan utilizando
+ *
+ * Mantener nombres en PascalCase para diferenciarlos de las propiedades de ButtonConfig
+ *
+ * Si hay casos especificos del proyecto, mejor extender la clase
+ *
+ * @example
+ * export class CustomSofAlertButtons extends Buttons {
+ *   static CrearPaciente = new ButtonConfig('BUTTONS.CREAR-PACIENTE')
+ * }
+ */
+class Buttons {
+}
+/**
+ * Translation Key: BUTTONS.CANCELAR
+ */
+Buttons.Cancel = new ButtonConfig('BUTTONS.CANCELAR');
+/**
+ * Translation Key: BUTTONS.GUARDAR
+ */
+Buttons.Save = new ButtonConfig('BUTTONS.GUARDAR');
+/**
+ * Translation Key: BUTTONS.SI-ACTION
+ */
+Buttons.YesAction = new ButtonConfig('BUTTONS.SI-ACTION');
+/**
+ * Translation Key: BUTTONS.VOLVER
+ */
+Buttons.Return = new ButtonConfig('BUTTONS.VOLVER');
+
+/**
+ * SofAlert icon colors enum
+ *
+ * Agregar a medida que se vayan necesitando
+ */
+var IconColorEnum;
+(function (IconColorEnum) {
+    IconColorEnum["red"] = "#F27474";
+    IconColorEnum["orange"] = "#F8BB86";
+    IconColorEnum["primary"] = "#00A1DE";
+})(IconColorEnum || (IconColorEnum = {}));
+
+/**
+ * SofAlert icon style enum
+ *
+ * Son los estilos de los iconos de material
+ * @see {@link https://fonts.google.com/icons?icon.set=Material+Icons}
+ */
+var IconStyleEnum;
+(function (IconStyleEnum) {
+    IconStyleEnum["filled"] = "filled";
+    IconStyleEnum["outlined"] = "outlined";
+    IconStyleEnum["round"] = "round";
+    IconStyleEnum["sharp"] = "sharp";
+    IconStyleEnum["twoTone"] = "two-tone";
+})(IconStyleEnum || (IconStyleEnum = {}));
+
+/**
+ * SofAlert icons enum
+ *
+ * Agregar los nombres de los iconos de material que se vayan necesitando
+ * @see {@link https://fonts.google.com/icons?icon.set=Material+Icons}
+ */
+var IconEnum;
+(function (IconEnum) {
+    IconEnum["cancel"] = "cancel";
+    IconEnum["highlightOff"] = "highlight_off";
+    IconEnum["errorOutline"] = "error_outline";
+    IconEnum["person"] = "person";
+})(IconEnum || (IconEnum = {}));
+
+/**
+ * SofAlert predefined icon configurations
+ *
+ * Agregar a medida que vayan surgiendo iconos con configuraciones genericas repetidas
+ *
+ * // ToDo: Ver si es mejor poner el color y estilo en el nombre
+ *
+ * Si hay casos especificos del proyecto, mejor extender la clase
+ *
+ * @example
+ * export class CustomSofAlertIcons extends IconsDefaultConfigs {
+ *   static person = { icon: IconEnum.person, style: IconStyleEnum.outlined, color: IconColorEnum.primary } as IconConfig;
+ * }
+ */
+class IconsDefaultConfigs {
+}
+IconsDefaultConfigs.cancel = { icon: IconEnum.cancel, style: IconStyleEnum.outlined, color: IconColorEnum.red };
+IconsDefaultConfigs.highlightOff = { icon: IconEnum.highlightOff, style: IconStyleEnum.outlined, color: IconColorEnum.red };
+IconsDefaultConfigs.errorOutline = { icon: IconEnum.errorOutline, style: IconStyleEnum.outlined, color: IconColorEnum.orange };
+IconsDefaultConfigs.person = { icon: IconEnum.person, style: IconStyleEnum.outlined, color: IconColorEnum.primary };
+
+class AlertComponent {
+    constructor(dialogRef, data, translateService) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.translateService = translateService;
+        this.IconStyleEnum = IconStyleEnum;
+        this.IconColorEnum = IconColorEnum;
+        this.IconEnum = IconEnum;
+        this.formConfigs = {
+            formCustomClass: '',
+            submitButtonConfig: {
+                text: '',
+                color: 'primary',
+                hidden: true,
+                materialButtonType: 'raised'
+            }
+        };
+        this.config = data;
+    }
+    async ngOnInit() {
+        if (!!this.config.width)
+            this.dialogRef.updateSize(this.config.width);
+        if (!!this.config.textParams)
+            Object.keys(this.config.textParams).forEach(async (key) => this.config.textParams[key] = this.translateService.instant(this.config.textParams[key]));
+        if (!!this.config.buttonsParams)
+            Object.keys(this.config.buttonsParams).forEach(async (key) => this.config.buttonsParams[key] = this.translateService.instant(this.config.buttonsParams[key]));
+    }
+    onClick(type) {
+        const values = !this.form ? undefined : this.form.forma.value;
+        this.dialogRef.close({
+            usedButton: type,
+            values: values
+        });
+    }
+}
+AlertComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: AlertComponent, deps: [{ token: i1$1.MatDialogRef }, { token: MAT_DIALOG_DATA }, { token: i2$1.TranslateService }], target: i0.ɵɵFactoryTarget.Component });
+AlertComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.7", type: AlertComponent, selector: "app-alert", viewQueries: [{ propertyName: "form", first: true, predicate: ["form"], descendants: true }], ngImport: i0, template: "<span [class]=\"'icon material-icons' + (!!config.icon.style && config.icon.style != IconStyleEnum.filled ? ('-' + config.icon.style) : '')\"\r\n    [style.color]=\"config.icon.color ?? IconColorEnum.red\">\r\n    {{config.icon.icon}}\r\n</span>\r\n\r\n<span class=\"text\">\r\n    {{ config.text | translate:config.textParams }}\r\n</span>\r\n\r\n<div class=\"inputsForm\" *ngIf=\"!!config.inputsFormFields\">\r\n    <lib-i18n-dynamic-form \r\n    [formConfig]=\"formConfigs\" \r\n    [fields]=\"config.inputsFormFields\" \r\n    [rowHeight]=\"config.formRowsHeight ?? '40px'\"\r\n    gutterSize=\"1em\"\r\n    [cols]=\"3\"\r\n    #form\r\n    ></lib-i18n-dynamic-form>\r\n    <span>(<span class=\"red\">*</span>) {{\"LABELS.DATOS-OBLIGATORIOS\" | translate}}</span>\r\n</div>\r\n\r\n<div class=\"buttons\">\r\n\r\n    <button \r\n    *ngFor=\"let b of config.buttons\"\r\n    [ngClass]=\"{\r\n        'mat-button': b.type == 'basic',\r\n        'mat-raised-button': b.type == 'raised',\r\n        'mat-stroked-button': b.type == 'stroked',\r\n        'mat-flat-button': b.type == 'flat'\r\n    }\"\r\n    mat-button\r\n    color=\"primary\" \r\n    (click)=\"onClick(b.labelKey!)\" \r\n    >\r\n        {{ config.buttonsSkipToUppercase\r\n            ? (b.labelKey! | translate:config.buttonsParams)\r\n            : (b.labelKey! | translate:config.buttonsParams) | uppercase\r\n        }}\r\n    </button>\r\n\r\n</div>\r\n", styles: [":host{padding:20px 30px;display:flex;flex-direction:column;justify-items:center;gap:25px}:host>*{flex-grow:1;flex-shrink:1}:host>span{text-align:center;width:100%}:host>.icon{font-size:100px}:host>.text{font-size:25px;color:#000;white-space:pre-wrap}:host>.buttons{margin-top:10px;display:flex;flex-direction:row;gap:14px;justify-content:center}:host .red{color:red}:host>.inputsForm{display:flex;flex-direction:column;gap:10px}\n"], components: [{ type: I18nDynamicFormComponent, selector: "lib-i18n-dynamic-form", inputs: ["cols", "gutterSize", "rowHeight", "fields", "FieldsValues", "formConfig"], outputs: ["submitEvent", "onChangeEvent"] }], directives: [{ type: i20.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i20.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i20.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }], pipes: { "translate": i2$1.TranslatePipe, "uppercase": i20.UpperCasePipe } });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: AlertComponent, decorators: [{
+            type: Component,
+            args: [{ selector: 'app-alert', template: "<span [class]=\"'icon material-icons' + (!!config.icon.style && config.icon.style != IconStyleEnum.filled ? ('-' + config.icon.style) : '')\"\r\n    [style.color]=\"config.icon.color ?? IconColorEnum.red\">\r\n    {{config.icon.icon}}\r\n</span>\r\n\r\n<span class=\"text\">\r\n    {{ config.text | translate:config.textParams }}\r\n</span>\r\n\r\n<div class=\"inputsForm\" *ngIf=\"!!config.inputsFormFields\">\r\n    <lib-i18n-dynamic-form \r\n    [formConfig]=\"formConfigs\" \r\n    [fields]=\"config.inputsFormFields\" \r\n    [rowHeight]=\"config.formRowsHeight ?? '40px'\"\r\n    gutterSize=\"1em\"\r\n    [cols]=\"3\"\r\n    #form\r\n    ></lib-i18n-dynamic-form>\r\n    <span>(<span class=\"red\">*</span>) {{\"LABELS.DATOS-OBLIGATORIOS\" | translate}}</span>\r\n</div>\r\n\r\n<div class=\"buttons\">\r\n\r\n    <button \r\n    *ngFor=\"let b of config.buttons\"\r\n    [ngClass]=\"{\r\n        'mat-button': b.type == 'basic',\r\n        'mat-raised-button': b.type == 'raised',\r\n        'mat-stroked-button': b.type == 'stroked',\r\n        'mat-flat-button': b.type == 'flat'\r\n    }\"\r\n    mat-button\r\n    color=\"primary\" \r\n    (click)=\"onClick(b.labelKey!)\" \r\n    >\r\n        {{ config.buttonsSkipToUppercase\r\n            ? (b.labelKey! | translate:config.buttonsParams)\r\n            : (b.labelKey! | translate:config.buttonsParams) | uppercase\r\n        }}\r\n    </button>\r\n\r\n</div>\r\n", styles: [":host{padding:20px 30px;display:flex;flex-direction:column;justify-items:center;gap:25px}:host>*{flex-grow:1;flex-shrink:1}:host>span{text-align:center;width:100%}:host>.icon{font-size:100px}:host>.text{font-size:25px;color:#000;white-space:pre-wrap}:host>.buttons{margin-top:10px;display:flex;flex-direction:row;gap:14px;justify-content:center}:host .red{color:red}:host>.inputsForm{display:flex;flex-direction:column;gap:10px}\n"] }]
+        }], ctorParameters: function () { return [{ type: i1$1.MatDialogRef }, { type: undefined, decorators: [{
+                    type: Inject,
+                    args: [MAT_DIALOG_DATA]
+                }] }, { type: i2$1.TranslateService }]; }, propDecorators: { form: [{
+                type: ViewChild,
+                args: ['form', { static: false }]
+            }] } });
+
+class SofAlertService {
+    constructor(dialog) {
+        this.dialog = dialog;
+    }
+    async show(config) {
+        return await firstValueFrom(this.dialog.open(AlertComponent, {
+            data: config
+        }).afterClosed());
+    }
+    async showConfirmAction(text, textParams, buttonsParams, width) {
+        const config = {
+            icon: IconsDefaultConfigs.highlightOff,
+            text: text,
+            textParams: textParams,
+            buttons: [Buttons.Cancel.stroked, Buttons.YesAction.raised],
+            buttonsParams: buttonsParams,
+            width: width ?? '500px'
+        };
+        return await firstValueFrom(this.dialog.open(AlertComponent, {
+            maxWidth: '80vw',
+            maxHeight: '80vh',
+            data: config
+        }).afterClosed());
+    }
+}
+SofAlertService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SofAlertService, deps: [{ token: i1$1.MatDialog }], target: i0.ɵɵFactoryTarget.Injectable });
+SofAlertService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SofAlertService, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SofAlertService, decorators: [{
+            type: Injectable,
+            args: [{
+                    providedIn: 'root'
+                }]
+        }], ctorParameters: function () { return [{ type: i1$1.MatDialog }]; } });
+
+class SofAlertModule {
+}
+SofAlertModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SofAlertModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+SofAlertModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SofAlertModule, declarations: [AlertComponent], imports: [CommonModule,
+        I18nControlsModule,
+        TranslateModule] });
+SofAlertModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SofAlertModule, providers: [], imports: [[
+            CommonModule,
+            I18nControlsModule,
+            TranslateModule,
+        ]] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImport: i0, type: SofAlertModule, decorators: [{
+            type: NgModule,
+            args: [{
+                    declarations: [
+                        AlertComponent
+                    ],
+                    imports: [
+                        CommonModule,
+                        I18nControlsModule,
+                        TranslateModule,
+                    ],
+                    providers: []
+                }]
+        }] });
+
 /*
  * Public API Surface of i18n-controls
  */
@@ -1127,5 +1361,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.7", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { I18GridControlModule, I18nAutocompleteComponent, I18nBadgeControlComponent, I18nCardComponent, I18nCheckboxControlComponent, I18nCheckboxGroupControlComponent, I18nControlsModule, I18nDatePickerControlComponent, I18nDateRangePickerControlComponent, I18nDenseTextControlComponent, I18nDocControlComponent, I18nDynamicFormComponent, I18nFileUploadControlComponent, I18nGridControlComponent, I18nNumberControlComponent, I18nPasswordControlComponent, I18nPhoneControlComponent, I18nPrefixControlComponent, I18nRadioButtonComponent, I18nRowOptionsComponent, I18nSearchBoxControlComponent, I18nSelectControlComponent, I18nTextAreaControlComponent, I18nTextControlComponent, I18nTimePickerControlComponent, I18nWrapperModule, LangComponent, MyCustomPaginatorIntl };
+export { ButtonConfig, Buttons, I18GridControlModule, I18nAutocompleteComponent, I18nBadgeControlComponent, I18nCardComponent, I18nCheckboxControlComponent, I18nCheckboxGroupControlComponent, I18nControlsModule, I18nDatePickerControlComponent, I18nDateRangePickerControlComponent, I18nDenseTextControlComponent, I18nDocControlComponent, I18nDynamicFormComponent, I18nFileUploadControlComponent, I18nGridControlComponent, I18nNumberControlComponent, I18nPasswordControlComponent, I18nPhoneControlComponent, I18nPrefixControlComponent, I18nRadioButtonComponent, I18nRowOptionsComponent, I18nSearchBoxControlComponent, I18nSelectControlComponent, I18nTextAreaControlComponent, I18nTextControlComponent, I18nTimePickerControlComponent, I18nWrapperModule, IconColorEnum, IconEnum, IconStyleEnum, IconsDefaultConfigs, LangComponent, MyCustomPaginatorIntl, SofAlertModule, SofAlertService };
 //# sourceMappingURL=sof-i18n-controls.mjs.map

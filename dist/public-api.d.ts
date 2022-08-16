@@ -5,3 +5,4 @@ export * from './lib/i18n-wrapper-grid/i18n-grid-control/i18n-grid-control.compo
 export * from './lib/i18n-wrapper-grid/i18n-grid-control/components';
 export * from './lib/i18n-wrapper-grid/i18n-grid-control/i18n-grid-control.module';
 export * from './lib/providers/paginator-i18n-provider';
+export * from './sof-alert';
