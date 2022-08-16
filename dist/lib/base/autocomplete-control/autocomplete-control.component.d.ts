@@ -10,11 +10,23 @@ export declare class AutocompleteControlComponent extends BaseFormFieldComponent
     writeValue(value: any): void;
     getValue(item: any): any;
     getText(item: any): any;
+    /**
+     * Delay para filtrar
+     */
     debounce: number;
     valuePath: string;
     textPath: string;
-    list: any[];
-    filterFn: (filterText: string) => any[];
+    /**
+     * Busqueda en memoria
+     */
+    list?: any[];
+    /**
+     * Busqueda usado una funcion definida en el componente
+     */
+    filterFn: (filterText: string) => any[] | Promise<any[]>;
+    /**
+     * Busqueda usando un endpoint
+     */
     filterEndPoint: string;
     timeoutObj: any;
     filteredList: any[];

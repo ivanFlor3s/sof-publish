@@ -648,7 +648,9 @@ class AutocompleteControlComponent extends BaseFormFieldComponent {
         super(controlDir);
         this.controlDir = controlDir;
         this.httpClient = httpClient;
-        //Delay para filtrar
+        /**
+         * Delay para filtrar
+         */
         this.debounce = 300;
         this.valuePath = 'value';
         this.textPath = 'text';
