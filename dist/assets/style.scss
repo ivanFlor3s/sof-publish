@@ -134,8 +134,12 @@ button{
     align-items: center;
 }
 
-
 .mat-form-field-prefix{
     top: 0 !important;
     color: #9D9D9D
+}
+
+.mat-button-toggle-checked{
+    background-color: mat-color($primary);
+    color: white !important;
 }
