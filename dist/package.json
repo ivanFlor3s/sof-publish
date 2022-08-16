@@ -1,6 +1,6 @@
 {
   "name": "sof-i18n-controls",
-  "version": "2.6.8",
+  "version": "2.6.9",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
