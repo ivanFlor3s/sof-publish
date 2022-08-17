@@ -10,7 +10,7 @@ export declare class I18nAutocompleteComponent extends I18nOptions implements Af
     /**
      * Busqueda usado una funcion definida en el componente
      **/
-    filterFn: (filterText: string) => any[];
+    filterFn: (filterText: string) => any[] | Promise<any[]>;
     /**
      * Busqueda usando un endpoint
      **/
