@@ -1,0 +1,16 @@
+
+
+<ng-container [formGroup]="getFbGroup()">
+  <sof-checkbox-group-control
+  label="{{labelToTranslate | translate }}"
+  [formControlName]="controlDir.name"
+  [list]="checkOptions"
+  textPath="text"
+  valuePath="value"
+  [noLabel]="noLabel"
+  [sideLabel]="sideLabel"
+  [readOnly]="readOnly"
+  >
+    
+  </sof-checkbox-group-control>
+</ng-container>

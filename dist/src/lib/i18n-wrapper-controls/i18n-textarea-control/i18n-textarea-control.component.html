@@ -1,0 +1,14 @@
+<ng-container [formGroup]="getFbGroup()">
+    <sof-text-area-control 
+        label="{{labelToTranslate | translate }}"
+        placeholder="{{ placeholderToTranslate | translate}}"
+        [formControlName]="controlDir.name" 
+        [rowsArea]="rowsArea"
+        [resizeable]="resizeable"
+        [maxLength]="maxLength"
+        [noLabel]="noLabel"
+        [sideLabel]="sideLabel"
+        [readOnly]="readOnly"
+    >
+    </sof-text-area-control>
+</ng-container>

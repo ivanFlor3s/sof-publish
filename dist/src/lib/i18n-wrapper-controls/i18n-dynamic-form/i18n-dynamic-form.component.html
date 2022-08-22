@@ -1,0 +1,288 @@
+<div style="display: flex" *ngIf="!!forma">
+    <form
+      [formGroup]="forma"
+      autocomplete="off"
+      [class]="formConfig.formCustomClass"
+      (ngSubmit)="OnSubmit()"
+    >
+    <mat-grid-list [rowHeight]="rowHeight" [cols]="cols" [gutterSize]="gutterSize">
+  
+      <ng-container
+        *ngFor="let field of fields"
+        [class.field-container]="field.type != enum.EmptyCol && !field.hidden"
+      >
+      <mat-grid-tile colspan="{{ field.cols }}" rowspan="{{ field.type == enum.EmptyCol && field.subtitle ? 1 : 5 }}" [class]="field.type == enum.EmptyCol && field.subtitle ? 'mh-30px' : ''">
+        <div *ngIf="field.type != enum.EmptyCol && !field.hidden" class="{{'mw-100 mh-100 ' + field.templateOptions.customClass || ''}} ">
+          <div [ngSwitch]="field.type">
+  
+            <div *ngSwitchCase="'text'">
+              <app-i18n-text-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [maxLength]="field.templateOptions.maxLength || ''"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+              ></app-i18n-text-control>
+            </div>
+  
+            <div *ngSwitchCase="'dense-text'">
+              <app-i18n-dense-text-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [maxLength]="field.templateOptions.maxLength || ''"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-dense-text-control>
+            </div>
+  
+  
+            <div *ngSwitchCase="'checkbox'">
+              <app-i18n-checkbox-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-checkbox-control>
+            </div>
+  
+            <div *ngSwitchCase="'text-area'">
+              <app-i18n-textarea-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [rowsArea]="field.templateOptions.rowsArea || 2"
+                [resizeable]="field.templateOptions.resizeable || false"
+                [maxLength]="field.templateOptions.maxLength || ''"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-textarea-control>
+            </div>
+  
+            <div *ngSwitchCase="'number'">
+              <app-i18n-number-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [maxLength]="field.templateOptions.maxLength || ''"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-number-control>
+            </div>
+  
+            <div *ngSwitchCase="'radio'">
+              <app-i18n-radio-button
+                [labelToTranslate]="field.templateOptions.label"
+                [formControlName]="field.key"
+                [listToTranslate]="field.options?.options || []"
+                [textPath]="field.options?.config?.textPath || 'text'"
+                [valuePath]="field.options?.config?.valuePath || 'value'"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-radio-button>
+            </div>
+  
+            <div *ngSwitchCase="'select'">
+              <app-i18n-select-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [textPath]="field.options?.config?.textPath || 'text'"
+                [valuePath]="field.options?.config?.valuePath || 'value'"
+                [listTmp]="field.listKey ?? field.options?.options"
+                [toTranslate]="field.toTranslate || false"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-select-control>
+            </div>
+  
+            <div *ngSwitchCase="'autocomplete'">
+              <app-i18n-autocomplete-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [textPath]="field.options?.config?.textPath || 'text'"
+                [valuePath]="field.options?.config?.valuePath || 'value'"
+                [listTmp]="field.listKey ?? field.options?.options"
+                [toTranslate]="field.toTranslate || false"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-autocomplete-control>
+            </div>
+  
+            <div *ngSwitchCase="'time'">
+              <app-i18n-timer-picker-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [format24hs]="true"
+                [formControlName]="field.key"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-timer-picker-control>
+            </div>
+  
+            <div *ngSwitchCase="'date'">
+              <app-i18n-date-picker-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-date-picker-control>
+            </div>
+  
+            <div *ngSwitchCase="'phone'">
+              <app-i18n-phone-control
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [maxLength]="field.templateOptions.maxLength || ''"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-phone-control>
+            </div>
+  
+            <div *ngSwitchCase="'file'">
+              <app-i18n-file-upload-control
+                #fileControl
+                [labelToTranslate]="field.templateOptions.label"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [multiple]="!!field.templateOptions.multiple"
+                [maxSize]="fileControl.getMaxSizeValueInValidation(field.validations)"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-file-upload-control>
+            </div>
+  
+            <div *ngSwitchCase="'password'">
+              <app-i18n-password-control
+                [labelToTranslate]="field.templateOptions.label || ''"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+                [formControlName]="field.key"
+                [maxLength]="field.templateOptions.maxLength || ''"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-password-control>
+            </div>
+
+            <div *ngSwitchCase="'prefix'">
+              <app-i18n-prefix-control
+                [labelToTranslate]="field.templateOptions.label || ''"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+
+                [prefix]=" field.prefixConfig?.prefix || (field.prefixConfig?.prefixDinamic?.prefix$ | async )  || ''"
+                [inputType]="field.prefixConfig?.prefixType ?? 'number'"
+                
+                [formControlName]="field.key"
+                [maxLength]="field.templateOptions.maxLength || ''"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-prefix-control>
+            </div>
+            
+            <div *ngSwitchCase="'checkbox-group'">
+              <app-i18n-checkbox-group-control
+                [labelToTranslate]="field.templateOptions.label"
+                [formControlName]="field.key"
+                [listToTranslate]="field.options?.options || []"
+                [textPath]="field.options?.config?.textPath || 'text'"
+                [valuePath]="field.options?.config?.valuePath || 'value'"
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-checkbox-group-control>
+            </div>
+
+            <div *ngSwitchCase="'date-range-picker'">
+              <app-i18n-date-range-picker-control
+                [labelToTranslate]="field.templateOptions.label"
+                [formControlName]="field.key"
+                
+                [editable]="field.dateRangePickerConfig?.editable ?? false"
+                [openOnClick]="field.dateRangePickerConfig?.openOnClick ?? true"
+                [placeholderToTranslate]="field.templateOptions.placeholder || ''"
+
+                [noLabel]="field.templateOptions.noLabel"
+                [sideLabel]="field.templateOptions.sideLabel"
+                [readOnly]="field.templateOptions.readOnly"
+                ></app-i18n-date-range-picker-control>
+            </div>
+  
+            <div *ngSwitchCase="'empty-col'">
+            </div>
+  
+            <div *ngSwitchDefault>
+              <h3>Se desconoce el tipo {{ field.type }}</h3>
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="field.type == enum.EmptyCol">
+          <div *ngIf="field.subtitle">
+            <h2>{{ field.subtitle | translate}}</h2>
+          </div>
+        </div>
+
+      </mat-grid-tile>
+
+
+      </ng-container>
+    </mat-grid-list>
+  
+      <div
+        [ngSwitch]="formConfig.submitButtonConfig.materialButtonType"
+        *ngIf="!formConfig.submitButtonConfig.hidden"
+      >
+        <button
+          *ngSwitchCase="'raised'"
+          mat-raised-button
+          [color]="formConfig.submitButtonConfig.color"
+          type="submit"
+        >
+          {{ formConfig.submitButtonConfig.text }}
+        </button>
+  
+        <button
+        *ngSwitchCase="'outline'"
+        mat-stroked-button
+        [color]="formConfig.submitButtonConfig.color"
+        type="submit"
+      >
+        {{ formConfig.submitButtonConfig.text }}
+      </button>
+      <button
+        *ngSwitchCase="'text'"
+        mat-button
+        [color]="formConfig.submitButtonConfig.color"
+        type="submit"
+      >
+        {{ formConfig.submitButtonConfig.text }}
+      </button>
+      <button
+        *ngSwitchCase="'flat'"
+        mat-flat-button
+        [color]="formConfig.submitButtonConfig.color"
+        type="submit"
+      >
+        {{ formConfig.submitButtonConfig.text }}
+      </button>
+      </div>
+    </form>
+  </div>
+  

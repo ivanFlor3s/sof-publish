@@ -1,0 +1,18 @@
+<ng-container [formGroup]="getFbGroup()">
+  <!--  TODO [placeHolderFromDate]="placeholderToTranslate" 
+    No paso por pipe porque no se muestra el placeholder del input 1 hasta que se hace click 
+  -->
+  <sof-date-range-picker-control
+    label="{{labelToTranslate | translate }}"
+    [formControlName]="controlDir.name"
+    [noLabel]="noLabel"
+    [sideLabel]="sideLabel"
+    
+    [placeHolderFromDate]="placeholderToTranslate"
+    [placeHolderToDate]="placeholderToTranslate"
+    [openOnClick]="openOnClick"
+    [editable]="editable"
+    [readOnly]="readOnly"
+  >
+  </sof-date-range-picker-control>
+</ng-container>

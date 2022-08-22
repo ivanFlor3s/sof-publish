@@ -1,0 +1,12 @@
+<ng-container [formGroup]="getFbGroup()">
+    <sof-time-picker-control  
+        label="{{ labelToTranslate | translate }}"
+        placeholder="{{ placeholderToTranslate | translate}}"
+        [format24hs]="format24hs"
+        [formControlName]="controlDir.name"
+        [noLabel]="noLabel"
+        [sideLabel]="sideLabel"
+        [readOnly]="readOnly"
+    >
+    </sof-time-picker-control>
+</ng-container>

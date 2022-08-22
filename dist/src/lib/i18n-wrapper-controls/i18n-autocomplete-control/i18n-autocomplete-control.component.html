@@ -1,0 +1,18 @@
+<ng-container [formGroup]="getFbGroup()">
+  <sof-autocomplete-control
+    label="{{labelToTranslate | translate }}"
+    placeholder="{{placeholderToTranslate | translate}}"
+    [textPath]="textPath"
+    [valuePath]="valuePath"
+    [formControlName]="controlDir.name"
+    [list]="!filterFn && !filterEndPoint ? listFinal : undefined"
+    [maxLength]="maxLength"
+    [noLabel]="noLabel"
+    [sideLabel]="sideLabel"
+    [readOnly]="readOnly"
+    [debounce]="debounce"
+    [filterFn]="filterFn"
+    [filterEndPoint]="filterEndPoint"
+  >
+  </sof-autocomplete-control>
+</ng-container>

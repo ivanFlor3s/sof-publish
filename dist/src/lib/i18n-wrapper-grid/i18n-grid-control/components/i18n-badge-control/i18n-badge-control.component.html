@@ -1,0 +1,7 @@
+<div class="badge-container">
+    <span *ngIf="config"  
+        class="badge" 
+        [style.background-color]="config.badgeColor"
+        [style.color]="config.badgeTextColor"
+        >{{config.text | translate}}</span>
+  </div>

@@ -1,0 +1,13 @@
+<ng-container [formGroup]="getFbGroup()">
+    <sof-dense-text-control
+      label="{{labelToTranslate | translate }}"
+      placeholder="{{placeholderToTranslate | translate}}"
+      [formControlName]="controlDir.name"
+      [maxLength]="maxLength"
+      [noLabel]="noLabel"
+      [sideLabel]="sideLabel"
+      [readOnly]="readOnly"
+    >
+    </sof-dense-text-control>
+</ng-container>
+  

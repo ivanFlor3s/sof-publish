@@ -1,0 +1,17 @@
+<ng-container *ngIf="options.length > 0">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon matTooltip="{{'GRID.MENU.TYPEHEAD-OPTIONS'|translate}}"> more_vert </mat-icon>
+  </button>
+  <div>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let opt of options"
+        (click)="accionar(opt)"
+      >
+        {{ opt.option | translate }}
+      </button>
+    </mat-menu>
+  </div>
+</ng-container>
+

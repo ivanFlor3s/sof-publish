@@ -1,0 +1,17 @@
+
+
+<ng-container  [formGroup]="getFbGroup()">
+  <sof-radio-button-control
+  label="{{labelToTranslate | translate }}"
+  [formControlName]="!!controlDir ? controlDir.name : 'none'"
+  [list]="radioOptions"
+  textPath="text"
+  valuePath="value"
+  [noLabel]="noLabel"
+  [sideLabel]="sideLabel"
+  (change)="onInput($event)"
+  [readOnly]="readOnly"
+  >
+    
+  </sof-radio-button-control>
+</ng-container>
