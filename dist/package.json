@@ -1,6 +1,6 @@
 {
   "name": "sof-i18n-controls",
-  "version": "2.6.12",
+  "version": "2.6.13",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
@@ -13,5 +13,25 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "module": "fesm2015/sof-i18n-controls.mjs",
+  "es2020": "fesm2020/sof-i18n-controls.mjs",
+  "esm2020": "esm2020/sof-i18n-controls.mjs",
+  "fesm2020": "fesm2020/sof-i18n-controls.mjs",
+  "fesm2015": "fesm2015/sof-i18n-controls.mjs",
+  "typings": "sof-i18n-controls.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./sof-i18n-controls.d.ts",
+      "esm2020": "./esm2020/sof-i18n-controls.mjs",
+      "es2020": "./fesm2020/sof-i18n-controls.mjs",
+      "es2015": "./fesm2015/sof-i18n-controls.mjs",
+      "node": "./fesm2015/sof-i18n-controls.mjs",
+      "default": "./fesm2020/sof-i18n-controls.mjs"
+    }
+  },
+  "sideEffects": false
 }
